@@ -1,0 +1,25 @@
+{
+  "name": "cdflib_wasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apps-script.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tryggvigy/cdflib_wasm.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/tryggvigy/cdflib_wasm/issues"
+  },
+  "homepage": "https://github.com/tryggvigy/cdflib_wasm#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}

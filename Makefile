@@ -5,15 +5,16 @@ build: cdflib.wasm cdflib.wasm.base64.json
 build-native: cdflib.out
 
 clean:
-	rm -f cdflib.wasm
-	rm -f cdflib.js
 	rm -f cdflib.out
+	rm -f cdflib.js
+	rm -f cdflib.wasm
+	rm -f cdflib.wasm.base64.json
 
 cdflib.out:
 	clang cdflib.c -o cdflib.out
 
 cdflib.wasm:
-	emcc -s "EXPORTED_FUNCTIONS=['_cdflib_cdftnc_power', '_cdflib_cdft_power']" \
+	emcc -s "EXPORTED_FUNCTIONS=['_cdft_1', '_cdft_2', '_cdftnc_1']" \
 	-s BINARYEN_ASYNC_COMPILATION=0 \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS="['writeArrayToMemory', 'stackAlloc', 'stackSave', 'stackRestore', 'getValue']" \
 	-s DEFAULT_LIBRARY_FUNCS_TO_INCLUDE="[]" \
@@ -25,7 +26,7 @@ cdflib.wasm:
 	-s INVOKE_RUN=0 \
 	-s DISABLE_EXCEPTION_CATCHING=1 \
 	-s ASSERTIONS=0 \
-	cdflib.c -o cdflib.js
+	cdflib.c cdflib_wrapper.c -o cdflib.js
 
 cdflib.wasm.base64.json:
-	node -p "JSON.stringify(fs.readFileSync('./a.out.wasm', 'base64'))" > cdflib.wasm.base64.json
+	node -p "JSON.stringify(fs.readFileSync('./cdflib.wasm', 'base64'))" > cdflib.wasm.base64.json

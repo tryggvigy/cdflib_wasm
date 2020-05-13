@@ -92,9 +92,19 @@ class CdfLibWrapper {
   }
 
   _exportProgram(program) {
-    // export cephes functions
+    // export functions
+    const funcs = [
+      "algdiv",
+      "cdft_1",
+      "cdft_2",
+      "cdft_3",
+      "cdftnc_1",
+      "cdftnc_2",
+      "cdftnc_3",
+      "cdftnc_4"
+    ];
     for (const key of Object.keys(program.exports)) {
-      if (key.startsWith("cdf")) {
+      if (funcs.includes(key)) {
         this[key] = program.exports[key];
       }
     }

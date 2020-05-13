@@ -2,3 +2,4 @@
 *.o
 index.js
 node_modules
+test/test.out

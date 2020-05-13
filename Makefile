@@ -4,17 +4,21 @@ build: cdflib.wasm cdflib.wasm.base64.json
 
 build-native: cdflib.out
 
+build-test: test.out
+
 clean:
 	rm -f cdflib.out
 	rm -f cdflib.js
 	rm -f cdflib.wasm
 	rm -f cdflib.wasm.base64.json
+	rm -f test/test.out
 
 cdflib.out:
 	clang cdflib.c -o cdflib.out
 
 cdflib.wasm:
-	emcc -s "EXPORTED_FUNCTIONS=['_cdft_1', '_cdft_2', '_cdftnc_1']" \
+	emcc -s "EXPORTED_FUNCTIONS=[ \
+		'_algdiv', '_cdft_1', '_cdft_2', '_cdft_3', '_cdftnc_1', '_cdftnc_2', '_cdftnc_3', '_cdftnc_4']" \
 	-s BINARYEN_ASYNC_COMPILATION=0 \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS="['writeArrayToMemory', 'stackAlloc', 'stackSave', 'stackRestore', 'getValue']" \
 	-s DEFAULT_LIBRARY_FUNCS_TO_INCLUDE="[]" \
@@ -30,3 +34,6 @@ cdflib.wasm:
 
 cdflib.wasm.base64.json:
 	node -p "JSON.stringify(fs.readFileSync('./cdflib.wasm', 'base64'))" > cdflib.wasm.base64.json
+
+test.out:
+	clang test/test.c cdflib.c -o test/test.out

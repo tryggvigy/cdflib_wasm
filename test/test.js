@@ -1,4 +1,5 @@
 const CdfLibWrapper = require("../cdflibNode");
+const CdfLibStandaloneWrapper = require("../cdflibStandalone");
 
 expect.extend({
   toBeAround(actual, expected, precision) {
@@ -19,6 +20,14 @@ expect.extend({
 
 describe("cdflib_wasm", () => {
   const cdflib = new CdfLibWrapper(true);
+
+  test("standalone cdflib works", () => {
+    const cdflibStandalone = new CdfLibStandaloneWrapper(true);
+    expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(
+      0.025,
+      14
+    );
+  });
 
   describe("cdft", () => {
     const df = 18;

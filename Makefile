@@ -1,6 +1,4 @@
-# .PHONY = clean
-
-build: cdflib.wasm cdflib.wasm.base64.json
+build: cdflib.wasm cdflib.wasm.base64.json cdflibStandalone.js
 
 build-native: cdflib.out
 
@@ -12,6 +10,7 @@ clean:
 	rm -f cdflib.wasm
 	rm -f cdflib.wasm.base64.json
 	rm -f test/test.out
+	rm -f cdflibStandalone.js
 
 cdflib.out:
 	clang cdflib.c -o cdflib.out
@@ -32,8 +31,8 @@ cdflib.wasm:
 	-s ASSERTIONS=0 \
 	cdflib.c cdflib_wrapper.c -o cdflib.js
 
-cdflib.wasm.base64.json:
-	node -p "JSON.stringify(fs.readFileSync('./cdflib.wasm', 'base64'))" > cdflib.wasm.base64.json
+cdflib.wasm.base64.json cdflibStandalone.js:
+	node generateFiles.js
 
 test.out:
 	clang test/test.c cdflib.c -o test/test.out

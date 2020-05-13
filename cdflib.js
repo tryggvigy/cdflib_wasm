@@ -1163,11 +1163,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 1061504,
+    STACK_BASE = 1061728,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 12928,
-    DYNAMIC_BASE = 1061504,
-    DYNAMICTOP_PTR = 12768;
+    STACK_MAX = 13152,
+    DYNAMIC_BASE = 1061728,
+    DYNAMICTOP_PTR = 12992;
 
 
 
@@ -1643,7 +1643,7 @@ var ASM_CONSTS = {
 
 
 
-// STATICTOP = STATIC_BASE + 11904;
+// STATICTOP = STATIC_BASE + 12128;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -1691,7 +1691,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 12768;
+      return 12992;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -1869,14 +1869,18 @@ var asmGlobalArg = {};
 var asmLibraryArg = { "emscripten_get_sbrk_ptr": _emscripten_get_sbrk_ptr, "emscripten_memcpy_big": _emscripten_memcpy_big, "emscripten_resize_heap": _emscripten_resize_heap, "exit": _exit, "fd_close": _fd_close, "fd_seek": _fd_seek, "fd_write": _fd_write, "memory": wasmMemory, "setTempRet0": _setTempRet0, "table": wasmTable };
 var asm = createWasm();
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = asm["__wasm_call_ctors"];
-var _algdiv = Module["_algdiv"] = asm["algdiv"];
-var _cdft_1 = Module["_cdft_1"] = asm["cdft_1"];
-var _cdft_2 = Module["_cdft_2"] = asm["cdft_2"];
-var _cdft_3 = Module["_cdft_3"] = asm["cdft_3"];
-var _cdftnc_1 = Module["_cdftnc_1"] = asm["cdftnc_1"];
-var _cdftnc_2 = Module["_cdftnc_2"] = asm["cdftnc_2"];
-var _cdftnc_3 = Module["_cdftnc_3"] = asm["cdftnc_3"];
-var _cdftnc_4 = Module["_cdftnc_4"] = asm["cdftnc_4"];
+var _cdflib_algdiv = Module["_cdflib_algdiv"] = asm["cdflib_algdiv"];
+var _cdflib_alngam = Module["_cdflib_alngam"] = asm["cdflib_alngam"];
+var _cdflib_alnrel = Module["_cdflib_alnrel"] = asm["cdflib_alnrel"];
+var _cdflib_apser = Module["_cdflib_apser"] = asm["cdflib_apser"];
+var _cdflib_basym = Module["_cdflib_basym"] = asm["cdflib_basym"];
+var _cdflib_cdft_1 = Module["_cdflib_cdft_1"] = asm["cdflib_cdft_1"];
+var _cdflib_cdft_2 = Module["_cdflib_cdft_2"] = asm["cdflib_cdft_2"];
+var _cdflib_cdft_3 = Module["_cdflib_cdft_3"] = asm["cdflib_cdft_3"];
+var _cdflib_cdftnc_1 = Module["_cdflib_cdftnc_1"] = asm["cdflib_cdftnc_1"];
+var _cdflib_cdftnc_2 = Module["_cdflib_cdftnc_2"] = asm["cdflib_cdftnc_2"];
+var _cdflib_cdftnc_3 = Module["_cdflib_cdftnc_3"] = asm["cdflib_cdftnc_3"];
+var _cdflib_cdftnc_4 = Module["_cdflib_cdftnc_4"] = asm["cdflib_cdftnc_4"];
 var ___errno_location = Module["___errno_location"] = asm["__errno_location"];
 var _malloc = Module["_malloc"] = asm["malloc"];
 var _free = Module["_free"] = asm["free"];

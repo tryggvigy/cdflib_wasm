@@ -1,6 +1,26 @@
 #include "cdflib.h"
 
-double cdft_1(double df, double t) {
+double cdflib_algdiv(double a, double b) {
+  return algdiv(&a, &b);
+}
+
+double cdflib_alngam(double x) {
+  return alngam(&x);
+}
+
+double cdflib_alnrel(double a) {
+  return alnrel(&a);
+}
+
+double cdflib_apser(double a, double b, double x, double eps) {
+  return apser(&a, &b, &x, &eps);
+}
+
+double cdflib_basym(double a, double b, double lambda, double eps) {
+  return basym(&a, &b, &lambda, &eps);
+}
+
+double cdflib_cdft_1(double df, double t) {
   int which=1;
   double q=0, p=0, bound=0;
   int status=10;
@@ -8,7 +28,7 @@ double cdft_1(double df, double t) {
   return p;
 }
 
-double cdft_2(double df, double p) {
+double cdflib_cdft_2(double df, double p) {
   int which=2;
   double q=1.0-p, t=0, bound=0;
   int status=10;
@@ -16,7 +36,7 @@ double cdft_2(double df, double p) {
   return t;
 }
 
-double cdft_3(double p, double t) {
+double cdflib_cdft_3(double p, double t) {
   int which=3;
   double q=1.0-p, df=0, bound=0;
   int status=10;
@@ -24,7 +44,7 @@ double cdft_3(double p, double t) {
   return df;
 }
 
-double cdftnc_1(double df, double nc, double t) {
+double cdflib_cdftnc_1(double df, double nc, double t) {
   int which=1;
   double q=0, p=0, bound=0;
   int status=10;
@@ -32,7 +52,7 @@ double cdftnc_1(double df, double nc, double t) {
   return p;
 }
 
-double cdftnc_2(double df, double nc, double p) {
+double cdflib_cdftnc_2(double df, double nc, double p) {
   int which=2;
   double q=1.0-p, t=0, bound=0;
   int status=10;
@@ -40,7 +60,7 @@ double cdftnc_2(double df, double nc, double p) {
   return t;
 }
 
-double cdftnc_3(double p, double nc, double t) {
+double cdflib_cdftnc_3(double p, double nc, double t) {
   int which=3;
   double q=1.0-p, df=0, bound=0;
   int status=10;
@@ -48,7 +68,7 @@ double cdftnc_3(double p, double nc, double t) {
   return df;
 }
 
-double cdftnc_4(double df, double p, double t) {
+double cdflib_cdftnc_4(double df, double p, double t) {
   int which=4;
   double q=1.0-p, nc=0, bound=0;
   int status=10;

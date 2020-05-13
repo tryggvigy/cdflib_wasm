@@ -1,6 +1,4 @@
-build: cdflib.wasm cdflib.wasm.base64.json cdflibStandalone.js
-
-build-native: cdflib.out
+build: test.out cdflib.wasm cdflib.wasm.base64.json cdflibStandalone.js
 
 build-test: test.out
 
@@ -12,12 +10,14 @@ clean:
 	rm -f test/test.out
 	rm -f cdflibStandalone.js
 
-cdflib.out:
-	clang cdflib.c -o cdflib.out
+test.out:
+	clang test/test.c cdflib.c -o test/test.out
 
 cdflib.wasm:
 	emcc -s "EXPORTED_FUNCTIONS=[ \
-		'_algdiv', '_cdft_1', '_cdft_2', '_cdft_3', '_cdftnc_1', '_cdftnc_2', '_cdftnc_3', '_cdftnc_4']" \
+		'_cdflib_algdiv','_cdflib_alngam', '_cdflib_alnrel', '_cdflib_apser', '_cdflib_basym', \
+		'_cdflib_cdft_1', '_cdflib_cdft_2', '_cdflib_cdft_3', \
+		'_cdflib_cdftnc_1', '_cdflib_cdftnc_2', '_cdflib_cdftnc_3', '_cdflib_cdftnc_4']" \
 	-s BINARYEN_ASYNC_COMPILATION=0 \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS="['writeArrayToMemory', 'stackAlloc', 'stackSave', 'stackRestore', 'getValue']" \
 	-s DEFAULT_LIBRARY_FUNCS_TO_INCLUDE="[]" \
@@ -33,6 +33,3 @@ cdflib.wasm:
 
 cdflib.wasm.base64.json cdflibStandalone.js:
 	node generateFiles.js
-
-test.out:
-	clang test/test.c cdflib.c -o test/test.out

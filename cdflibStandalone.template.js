@@ -94,10 +94,11 @@ class CdfLibWrapper {
   }
 
   _exportProgram(program) {
-    // export cephes functions
+    // export cdflib functions
     for (const key of Object.keys(program.exports)) {
-      if (key.startsWith("cdf")) {
-        this[key] = program.exports[key];
+      if (key.startsWith("cdflib_")) {
+        const funcNameWithoutPrefix = key.replace("cdflib_", "");
+        this[funcNameWithoutPrefix] = program.exports[key];
       }
     }
 

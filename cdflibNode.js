@@ -92,20 +92,11 @@ class CdfLibWrapper {
   }
 
   _exportProgram(program) {
-    // export functions
-    const funcs = [
-      "algdiv",
-      "cdft_1",
-      "cdft_2",
-      "cdft_3",
-      "cdftnc_1",
-      "cdftnc_2",
-      "cdftnc_3",
-      "cdftnc_4"
-    ];
+    // export cdflib functions
     for (const key of Object.keys(program.exports)) {
-      if (funcs.includes(key)) {
-        this[key] = program.exports[key];
+      if (key.startsWith("cdflib_")) {
+        const funcNameWithoutPrefix = key.replace("cdflib_", "");
+        this[funcNameWithoutPrefix] = program.exports[key];
       }
     }
 

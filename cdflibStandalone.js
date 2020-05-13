@@ -2,6 +2,8 @@ const TOTAL_STACK = 1024 * 1024; // 1MB
 const TOTAL_MEMORY = 2 * 1024 * 1024; // 1MB
 const WASM_PAGE_SIZE = 64 * 1024; // Defined in WebAssembly specs
 
+// The {{}} block is a placeholder that gets
+// replaced with the wasm binary as a base64 string.
 const WASM_CODE = _base64ToArrayBuffer("{{WASM_CODE}}");
 
 function _base64ToArrayBuffer(base64) {

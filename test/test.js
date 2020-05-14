@@ -53,6 +53,12 @@ describe("cdflib_wasm", () => {
     expect(cdflib.basym(a, b, lambda, eps)).toBe(0.5000170778806329);
   });
 
+  test("bcorr", () => {
+    const a = 16;
+    const b = 17;
+    expect(cdflib.bcorr(a, b)).toBe(0.007583876618287589);
+  });
+
   describe("cdft", () => {
     const df = 18;
     const t = -2.10092204024096;

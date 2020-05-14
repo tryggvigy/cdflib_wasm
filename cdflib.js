@@ -1163,11 +1163,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 1061728,
+    STACK_BASE = 1064784,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 13152,
-    DYNAMIC_BASE = 1061728,
-    DYNAMICTOP_PTR = 12992;
+    STACK_MAX = 16208,
+    DYNAMIC_BASE = 1064784,
+    DYNAMICTOP_PTR = 16048;
 
 
 
@@ -1643,7 +1643,7 @@ var ASM_CONSTS = {
 
 
 
-// STATICTOP = STATIC_BASE + 12128;
+// STATICTOP = STATIC_BASE + 15184;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -1691,7 +1691,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 12992;
+      return 16048;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -1874,6 +1874,39 @@ var _cdflib_alngam = Module["_cdflib_alngam"] = asm["cdflib_alngam"];
 var _cdflib_alnrel = Module["_cdflib_alnrel"] = asm["cdflib_alnrel"];
 var _cdflib_apser = Module["_cdflib_apser"] = asm["cdflib_apser"];
 var _cdflib_basym = Module["_cdflib_basym"] = asm["cdflib_basym"];
+var _cdflib_bcorr = Module["_cdflib_bcorr"] = asm["cdflib_bcorr"];
+var _cdflib_betaln = Module["_cdflib_betaln"] = asm["cdflib_betaln"];
+var _cdflib_bfrac = Module["_cdflib_bfrac"] = asm["cdflib_bfrac"];
+var _cdflib_bgrat = Module["_cdflib_bgrat"] = asm["cdflib_bgrat"];
+var _cdflib_bpser = Module["_cdflib_bpser"] = asm["cdflib_bpser"];
+var _cdflib_bratio = Module["_cdflib_bratio"] = asm["cdflib_bratio"];
+var _cdflib_brcmp1 = Module["_cdflib_brcmp1"] = asm["cdflib_brcmp1"];
+var _cdflib_brcomp = Module["_cdflib_brcomp"] = asm["cdflib_brcomp"];
+var _cdflib_bup = Module["_cdflib_bup"] = asm["cdflib_bup"];
+var _cdflib_cdfbet_1 = Module["_cdflib_cdfbet_1"] = asm["cdflib_cdfbet_1"];
+var _cdflib_cdfbet_2 = Module["_cdflib_cdfbet_2"] = asm["cdflib_cdfbet_2"];
+var _cdflib_cdfbet_3 = Module["_cdflib_cdfbet_3"] = asm["cdflib_cdfbet_3"];
+var _cdflib_cdfbet_4 = Module["_cdflib_cdfbet_4"] = asm["cdflib_cdfbet_4"];
+var _cdflib_cdfbin_1 = Module["_cdflib_cdfbin_1"] = asm["cdflib_cdfbin_1"];
+var _cdflib_cdfbin_2 = Module["_cdflib_cdfbin_2"] = asm["cdflib_cdfbin_2"];
+var _cdflib_cdfbin_3 = Module["_cdflib_cdfbin_3"] = asm["cdflib_cdfbin_3"];
+var _cdflib_cdfbin_4 = Module["_cdflib_cdfbin_4"] = asm["cdflib_cdfbin_4"];
+var _cdflib_cdfchi_1 = Module["_cdflib_cdfchi_1"] = asm["cdflib_cdfchi_1"];
+var _cdflib_cdfchi_2 = Module["_cdflib_cdfchi_2"] = asm["cdflib_cdfchi_2"];
+var _cdflib_cdfchi_3 = Module["_cdflib_cdfchi_3"] = asm["cdflib_cdfchi_3"];
+var _cdflib_cdfchn_1 = Module["_cdflib_cdfchn_1"] = asm["cdflib_cdfchn_1"];
+var _cdflib_cdfchn_2 = Module["_cdflib_cdfchn_2"] = asm["cdflib_cdfchn_2"];
+var _cdflib_cdfchn_3 = Module["_cdflib_cdfchn_3"] = asm["cdflib_cdfchn_3"];
+var _cdflib_cdfchn_4 = Module["_cdflib_cdfchn_4"] = asm["cdflib_cdfchn_4"];
+var _cdflib_cdff_1 = Module["_cdflib_cdff_1"] = asm["cdflib_cdff_1"];
+var _cdflib_cdff_2 = Module["_cdflib_cdff_2"] = asm["cdflib_cdff_2"];
+var _cdflib_cdff_3 = Module["_cdflib_cdff_3"] = asm["cdflib_cdff_3"];
+var _cdflib_cdff_4 = Module["_cdflib_cdff_4"] = asm["cdflib_cdff_4"];
+var _cdflib_cdffnc_1 = Module["_cdflib_cdffnc_1"] = asm["cdflib_cdffnc_1"];
+var _cdflib_cdffnc_2 = Module["_cdflib_cdffnc_2"] = asm["cdflib_cdffnc_2"];
+var _cdflib_cdffnc_3 = Module["_cdflib_cdffnc_3"] = asm["cdflib_cdffnc_3"];
+var _cdflib_cdffnc_4 = Module["_cdflib_cdffnc_4"] = asm["cdflib_cdffnc_4"];
+var _cdflib_cdffnc_5 = Module["_cdflib_cdffnc_5"] = asm["cdflib_cdffnc_5"];
 var _cdflib_cdft_1 = Module["_cdflib_cdft_1"] = asm["cdflib_cdft_1"];
 var _cdflib_cdft_2 = Module["_cdflib_cdft_2"] = asm["cdflib_cdft_2"];
 var _cdflib_cdft_3 = Module["_cdflib_cdft_3"] = asm["cdflib_cdft_3"];

@@ -22,8 +22,21 @@ cdflib.wasm:
 		'_cdflib_cdfchn_3', '_cdflib_cdfchn_4', '_cdflib_cdff_1', '_cdflib_cdff_2', \
 		'_cdflib_cdff_3', '_cdflib_cdff_4', '_cdflib_cdffnc_1', '_cdflib_cdffnc_2', \
 		'_cdflib_cdffnc_3', '_cdflib_cdffnc_4', '_cdflib_cdffnc_5', \
+		'_cdflib_cdfgam_1', '_cdflib_cdfgam_2', '_cdflib_cdfgam_3', '_cdflib_cdfgam_4', \
+		'_cdflib_cdfnbn_1', '_cdflib_cdfnbn_2', '_cdflib_cdfnbn_3', '_cdflib_cdfnbn_4', \
+		'_cdflib_cdfnor_1', '_cdflib_cdfnor_2', '_cdflib_cdfnor_3', '_cdflib_cdfnor_4', \
+		'_cdflib_cdfpoi_1', '_cdflib_cdfpoi_2', '_cdflib_cdfpoi_3', \
 		'_cdflib_cdft_1', '_cdflib_cdft_2', '_cdflib_cdft_3', \
-		'_cdflib_cdftnc_1', '_cdflib_cdftnc_2', '_cdflib_cdftnc_3', '_cdflib_cdftnc_4']" \
+		'_cdflib_cdftnc_1', '_cdflib_cdftnc_2', '_cdflib_cdftnc_3', '_cdflib_cdftnc_4', \
+		'_cdflib_cumbet', '_cdflib_cumbin', '_cdflib_cumchi', '_cdflib_cumchn', \
+		'_cdflib_cumf', '_cdflib_cumfnc', '_cdflib_cumgam', '_cdflib_cumnbn', \
+		'_cdflib_cumnor', '_cdflib_cumpoi', '_cdflib_cumt', '_cdflib_cumtnc', \
+		'_cdflib_devlpl', '_cdflib_dinvnr', '_cdflib_dinvr', '_cdflib_dstinv', \
+		'_cdflib_dt1', '_cdflib_dzror', '_cdflib_dstzr', '_cdflib_erf1', '_cdflib_erfc1', \
+		'_cdflib_esum', '_cdflib_exparg', '_cdflib_fpser', '_cdflib_gam1', '_cdflib_gaminv', \
+		'_cdflib_gamln', '_cdflib_gamln1', '_cdflib_Xgamm', '_cdflib_gratio', \
+		'_cdflib_gsumln', '_cdflib_psi', '_cdflib_rcomp', '_cdflib_rexp', '_cdflib_rlog', \
+		'_cdflib_rlog1', '_cdflib_spmpar', '_cdflib_stvaln']" \
 	-s BINARYEN_ASYNC_COMPILATION=0 \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS="['writeArrayToMemory', 'stackAlloc', 'stackSave', 'stackRestore', 'getValue']" \
 	-s DEFAULT_LIBRARY_FUNCS_TO_INCLUDE="[]" \

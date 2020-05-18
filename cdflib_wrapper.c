@@ -28,7 +28,8 @@ double cdflib_betaln(double a0, double b0) {
   return betaln(&a0, &b0);
 }
 
-double cdflib_bfrac(double a, double b, double x, double y, double lambda, double eps) {
+double cdflib_bfrac(double a, double b, double x, double y, double eps) {
+  double lambda = (a+b)*y-b;
   return bfrac(&a, &b, &x, &y, &lambda, &eps);
 }
 
@@ -606,8 +607,3 @@ double cdflib_spmpar(int i) {
 double cdflib_stvaln(double p) {
   return stvaln(&p);
 }
-
-/*
- Rest can be called directly
- fifdint, fifdmax1, fifdmin1, fifdsign, fifidint, fifmod
-*/

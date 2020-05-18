@@ -59,6 +59,98 @@ describe("cdflib_wasm", () => {
     expect(cdflib.bcorr(a, b)).toBe(0.007583876618287589);
   });
 
+  test("betaln", () => {
+    const a = 16;
+    const b = 17;
+    expect(cdflib.betaln(a, b)).toBe(-22.986827966193474);
+  });
+
+  // Runs infintely
+  test.skip("bfrac", () => {
+    const a = 14;
+    const b = 14;
+    const x = 14;
+    const y = 14;
+    const eps = 1;
+    expect(cdflib.bfrac(a, b, x, y, eps)).toBe(0);
+  });
+
+  // returns NaN
+  test.skip("bgrat", () => {
+    const a = 20;
+    const b = 0.2;
+    const x = 14;
+    const y = 11;
+    const w = 14;
+    const eps = 11;
+    expect(cdflib.bgrat(a, b, x, y, eps)).toBe(0);
+  });
+
+  test("bpser", () => {
+    const a = 0.8;
+    const b = 0.2;
+    const x = 1;
+    const eps = 11;
+    expect(cdflib.bpser(a, b, x, eps)).toBe(0.2338723209471598);
+  });
+
+  test("bratio", () => {
+    const a = 0.8;
+    const b = 0.2;
+    const x = 0.1;
+    expect(cdflib.bratio(a, b, x)).toBe(0.03846609962410597);
+  });
+
+  test("brcmp1", () => {
+    const mu = 1;
+    const a = 0.8;
+    const b = 0.2;
+    const x = 0.1;
+    const y = 11;
+    expect(cdflib.brcmp1(mu, a, b, x, y)).toBe(0.07892449221244194);
+  });
+
+  test("brcomp", () => {
+    const a = 0.8;
+    const b = 0.2;
+    const x = 0.1;
+    const y = 11;
+    expect(cdflib.brcomp(a, b, x, y)).toBe(0.02903469808985299);
+  });
+
+  test("bup", () => {
+    const a = 0.8;
+    const b = 0.2;
+    const x = 0.1;
+    const y = 2;
+    const n = 3;
+    const eps = 1;
+    expect(cdflib.bup(a, b, x, y, n, eps)).toBe(0.03830967109077825);
+  });
+
+  describe("cdfbet", () => {
+    const x = 0.5998027288886079;
+    const a = 13.2;
+    const b = 3;
+    const p = 0.025;
+
+    test("cdfbet_1", () => {
+      expect(cdflib.cdfbet_1(x, a, b)).toBeAround(p, 8);
+    });
+
+    test("cdfbet_2", () => {
+      expect(cdflib.cdfbet_2(p, a, b)).toBe(x);
+    });
+
+    test("cdfbet_3", () => {
+      expect(cdflib.cdfbet_3(p, b, x)).toBeAround(a, 6);
+    });
+
+    test("cdfbet_4", () => {
+      expect(cdflib.cdfbet_4(a, p, x)).toBeAround(b, 6);
+    });
+  });
+
   describe("cdft", () => {
     const df = 18;
     const t = -2.10092204024096;

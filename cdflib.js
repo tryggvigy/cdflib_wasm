@@ -1163,11 +1163,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 1064784,
+    STACK_BASE = 1065808,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 16208,
-    DYNAMIC_BASE = 1064784,
-    DYNAMICTOP_PTR = 16048;
+    STACK_MAX = 17232,
+    DYNAMIC_BASE = 1065808,
+    DYNAMICTOP_PTR = 17072;
 
 
 
@@ -1643,7 +1643,7 @@ var ASM_CONSTS = {
 
 
 
-// STATICTOP = STATIC_BASE + 15184;
+// STATICTOP = STATIC_BASE + 16208;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -1691,7 +1691,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 16048;
+      return 17072;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -1907,6 +1907,21 @@ var _cdflib_cdffnc_2 = Module["_cdflib_cdffnc_2"] = asm["cdflib_cdffnc_2"];
 var _cdflib_cdffnc_3 = Module["_cdflib_cdffnc_3"] = asm["cdflib_cdffnc_3"];
 var _cdflib_cdffnc_4 = Module["_cdflib_cdffnc_4"] = asm["cdflib_cdffnc_4"];
 var _cdflib_cdffnc_5 = Module["_cdflib_cdffnc_5"] = asm["cdflib_cdffnc_5"];
+var _cdflib_cdfgam_1 = Module["_cdflib_cdfgam_1"] = asm["cdflib_cdfgam_1"];
+var _cdflib_cdfgam_2 = Module["_cdflib_cdfgam_2"] = asm["cdflib_cdfgam_2"];
+var _cdflib_cdfgam_3 = Module["_cdflib_cdfgam_3"] = asm["cdflib_cdfgam_3"];
+var _cdflib_cdfgam_4 = Module["_cdflib_cdfgam_4"] = asm["cdflib_cdfgam_4"];
+var _cdflib_cdfnbn_1 = Module["_cdflib_cdfnbn_1"] = asm["cdflib_cdfnbn_1"];
+var _cdflib_cdfnbn_2 = Module["_cdflib_cdfnbn_2"] = asm["cdflib_cdfnbn_2"];
+var _cdflib_cdfnbn_3 = Module["_cdflib_cdfnbn_3"] = asm["cdflib_cdfnbn_3"];
+var _cdflib_cdfnbn_4 = Module["_cdflib_cdfnbn_4"] = asm["cdflib_cdfnbn_4"];
+var _cdflib_cdfnor_1 = Module["_cdflib_cdfnor_1"] = asm["cdflib_cdfnor_1"];
+var _cdflib_cdfnor_2 = Module["_cdflib_cdfnor_2"] = asm["cdflib_cdfnor_2"];
+var _cdflib_cdfnor_3 = Module["_cdflib_cdfnor_3"] = asm["cdflib_cdfnor_3"];
+var _cdflib_cdfnor_4 = Module["_cdflib_cdfnor_4"] = asm["cdflib_cdfnor_4"];
+var _cdflib_cdfpoi_1 = Module["_cdflib_cdfpoi_1"] = asm["cdflib_cdfpoi_1"];
+var _cdflib_cdfpoi_2 = Module["_cdflib_cdfpoi_2"] = asm["cdflib_cdfpoi_2"];
+var _cdflib_cdfpoi_3 = Module["_cdflib_cdfpoi_3"] = asm["cdflib_cdfpoi_3"];
 var _cdflib_cdft_1 = Module["_cdflib_cdft_1"] = asm["cdflib_cdft_1"];
 var _cdflib_cdft_2 = Module["_cdflib_cdft_2"] = asm["cdflib_cdft_2"];
 var _cdflib_cdft_3 = Module["_cdflib_cdft_3"] = asm["cdflib_cdft_3"];
@@ -1914,6 +1929,44 @@ var _cdflib_cdftnc_1 = Module["_cdflib_cdftnc_1"] = asm["cdflib_cdftnc_1"];
 var _cdflib_cdftnc_2 = Module["_cdflib_cdftnc_2"] = asm["cdflib_cdftnc_2"];
 var _cdflib_cdftnc_3 = Module["_cdflib_cdftnc_3"] = asm["cdflib_cdftnc_3"];
 var _cdflib_cdftnc_4 = Module["_cdflib_cdftnc_4"] = asm["cdflib_cdftnc_4"];
+var _cdflib_cumbet = Module["_cdflib_cumbet"] = asm["cdflib_cumbet"];
+var _cdflib_cumbin = Module["_cdflib_cumbin"] = asm["cdflib_cumbin"];
+var _cdflib_cumchi = Module["_cdflib_cumchi"] = asm["cdflib_cumchi"];
+var _cdflib_cumchn = Module["_cdflib_cumchn"] = asm["cdflib_cumchn"];
+var _cdflib_cumf = Module["_cdflib_cumf"] = asm["cdflib_cumf"];
+var _cdflib_cumfnc = Module["_cdflib_cumfnc"] = asm["cdflib_cumfnc"];
+var _cdflib_cumgam = Module["_cdflib_cumgam"] = asm["cdflib_cumgam"];
+var _cdflib_cumnbn = Module["_cdflib_cumnbn"] = asm["cdflib_cumnbn"];
+var _cdflib_cumnor = Module["_cdflib_cumnor"] = asm["cdflib_cumnor"];
+var _cdflib_cumpoi = Module["_cdflib_cumpoi"] = asm["cdflib_cumpoi"];
+var _cdflib_cumt = Module["_cdflib_cumt"] = asm["cdflib_cumt"];
+var _cdflib_cumtnc = Module["_cdflib_cumtnc"] = asm["cdflib_cumtnc"];
+var _cdflib_devlpl = Module["_cdflib_devlpl"] = asm["cdflib_devlpl"];
+var _cdflib_dinvnr = Module["_cdflib_dinvnr"] = asm["cdflib_dinvnr"];
+var _cdflib_dinvr = Module["_cdflib_dinvr"] = asm["cdflib_dinvr"];
+var _cdflib_dstinv = Module["_cdflib_dstinv"] = asm["cdflib_dstinv"];
+var _cdflib_dt1 = Module["_cdflib_dt1"] = asm["cdflib_dt1"];
+var _cdflib_dzror = Module["_cdflib_dzror"] = asm["cdflib_dzror"];
+var _cdflib_dstzr = Module["_cdflib_dstzr"] = asm["cdflib_dstzr"];
+var _cdflib_erf1 = Module["_cdflib_erf1"] = asm["cdflib_erf1"];
+var _cdflib_erfc1 = Module["_cdflib_erfc1"] = asm["cdflib_erfc1"];
+var _cdflib_esum = Module["_cdflib_esum"] = asm["cdflib_esum"];
+var _cdflib_exparg = Module["_cdflib_exparg"] = asm["cdflib_exparg"];
+var _cdflib_fpser = Module["_cdflib_fpser"] = asm["cdflib_fpser"];
+var _cdflib_gam1 = Module["_cdflib_gam1"] = asm["cdflib_gam1"];
+var _cdflib_gaminv = Module["_cdflib_gaminv"] = asm["cdflib_gaminv"];
+var _cdflib_gamln = Module["_cdflib_gamln"] = asm["cdflib_gamln"];
+var _cdflib_gamln1 = Module["_cdflib_gamln1"] = asm["cdflib_gamln1"];
+var _cdflib_Xgamm = Module["_cdflib_Xgamm"] = asm["cdflib_Xgamm"];
+var _cdflib_gratio = Module["_cdflib_gratio"] = asm["cdflib_gratio"];
+var _cdflib_gsumln = Module["_cdflib_gsumln"] = asm["cdflib_gsumln"];
+var _cdflib_psi = Module["_cdflib_psi"] = asm["cdflib_psi"];
+var _cdflib_rcomp = Module["_cdflib_rcomp"] = asm["cdflib_rcomp"];
+var _cdflib_rexp = Module["_cdflib_rexp"] = asm["cdflib_rexp"];
+var _cdflib_rlog = Module["_cdflib_rlog"] = asm["cdflib_rlog"];
+var _cdflib_rlog1 = Module["_cdflib_rlog1"] = asm["cdflib_rlog1"];
+var _cdflib_spmpar = Module["_cdflib_spmpar"] = asm["cdflib_spmpar"];
+var _cdflib_stvaln = Module["_cdflib_stvaln"] = asm["cdflib_stvaln"];
 var ___errno_location = Module["___errno_location"] = asm["__errno_location"];
 var _malloc = Module["_malloc"] = asm["malloc"];
 var _free = Module["_free"] = asm["free"];

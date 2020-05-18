@@ -255,6 +255,126 @@ double cdflib_cdffnc_5(double dfn, double dfd, double p, double f) {
   return nc;
 }
 
+double cdflib_cdfgam_1(double scale, double shape, double x) {
+  int which=1;
+  double q=0, p=0, bound=0;
+  int status=10;
+  cdfgam(&which, &p, &q, &x, &shape, &scale, &status, &bound);
+  return p;
+}
+
+double cdflib_cdfgam_2(double scale, double shape, double p) {
+  int which=2;
+  double q=1.0-p, x=0, bound=0;
+  int status=10;
+  cdfgam(&which, &p, &q, &x, &shape, &scale, &status, &bound);
+  return x;
+}
+
+double cdflib_cdfgam_3(double scale, double p, double x) {
+  int which=3;
+  double q=1.0-p, shape=0, bound=0;
+  int status=10;
+  cdfgam(&which, &p, &q, &x, &shape, &scale, &status, &bound);
+  return shape;
+}
+
+double cdflib_cdfgam_4(double p, double shape, double x) {
+  int which=4;
+  double q=1.0-p, scale=0, bound=0;
+  int status=10;
+  cdfgam(&which, &p, &q, &x, &shape, &scale, &status, &bound);
+  return scale;
+}
+
+double cdflib_cdfnbn_1(double s, double xn, double pr) {
+  int which=1;
+  double q=0, p=0, ompr=1.0-pr, bound=0;
+  int status=10;
+  cdfnbn(&which, &p, &q, &s, &xn, &pr, &ompr, &status, &bound);
+  return p;
+}
+
+double cdflib_cdfnbn_2(double p, double xn, double pr) {
+  int which=2;
+  double q=1.0-p, s=0, ompr=1.0-pr, bound=0;
+  int status=10;
+  cdfnbn(&which, &p, &q, &s, &xn, &pr, &ompr, &status, &bound);
+  return s;
+}
+
+double cdflib_cdfnbn_3(double s, double p, double pr) {
+  int which=3;
+  double q=1.0-p, xn=0, ompr=1.0-pr, bound=0;
+  int status=10;
+  cdfnbn(&which, &p, &q, &s, &xn, &pr, &ompr, &status, &bound);
+  return xn;
+}
+
+double cdflib_cdfnbn_4(double s, double p, double xn) {
+  int which=4;
+  double q=1.0-p, pr=0, ompr=0, bound=0;
+  int status=10;
+  cdfnbn(&which, &p, &q, &s, &xn, &pr, &ompr, &status, &bound);
+  return pr;
+}
+
+double cdflib_cdfnor_1(double mean, double std, double x) {
+  int which=1;
+  double q=0, p=0, bound=0;
+  int status=10;
+  cdfnor(&which, &p, &q, &x, &mean, &std, &status, &bound);
+  return p;
+}
+
+double cdflib_cdfnor_2(double mean, double p, double std) {
+  int which=2;
+  double q=1.0-p, x=0, bound=0;
+  int status=10;
+  cdfnor(&which, &p, &q, &x, &mean, &std, &status, &bound);
+  return x;
+}
+
+double cdflib_cdfnor_3(double p, double std, double x) {
+  int which=3;
+  double q=1.0-p, mean=0, bound=0;
+  int status=10;
+  cdfnor(&which, &p, &q, &x, &mean, &std, &status, &bound);
+  return mean;
+}
+
+double cdflib_cdfnor_4(double mean, double p, double x) {
+  int which=4;
+  double q=1.0-p, std=0, bound=0;
+  int status=10;
+  cdfnor(&which, &p, &q, &x, &mean, &std, &status, &bound);
+  return std;
+}
+
+double cdflib_cdfpoi_1(double s, double xlam) {
+  int which=1;
+  double q=0, p=0, bound=0;
+  int status=10;
+  cdfpoi(&which, &p, &q, &s, &xlam, &status, &bound);
+  return p;
+}
+
+double cdflib_cdfpoi_2(double p, double xlam) {
+  int which=2;
+  double q=1.0-p, s=0, bound=0;
+  int status=10;
+  cdfpoi(&which, &p, &q, &s, &xlam, &status, &bound);
+  return s;
+}
+
+double cdflib_cdfpoi_3(double p, double s) {
+  int which=3;
+  double q=1.0-p, xlam=0, bound=0;
+  int status=10;
+  cdfpoi(&which, &p, &q, &s, &xlam, &status, &bound);
+  return xlam;
+}
+
 double cdflib_cdft_1(double df, double t) {
   int which=1;
   double q=0, p=0, bound=0;
@@ -310,3 +430,184 @@ double cdflib_cdftnc_4(double df, double p, double t) {
   cdftnc(&which, &p, &q, &t, &df, &nc, &status, &bound);
   return nc;
 }
+
+// TODO
+void cdflib_cumbet(double x, double y, double a, double b, double cum, double ccum) {
+  cumbet(&x, &y, &a, &b, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumbin(double s, double xn, double pr, double ompr, double cum, double ccum) {
+  cumbin(&s, &xn, &pr, &ompr, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumchi(double x, double df, double cum, double ccum) {
+  cumchi(&x, &df, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumchn(double x, double df, double pnonc, double cum, double ccum) {
+  cumchn(&x, &df, &pnonc, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumf(double f, double dfn, double dfd, double cum, double ccum) {
+  cumf(&f, &dfn, &dfd, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumfnc(double f, double dfn, double dfd, double pnonc,
+                   double cum, double ccum) {
+  cumfnc(&f, &dfn, &dfd, &pnonc, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumgam(double x, double a, double cum, double ccum) {
+  cumgam(&x, &a, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumnbn(double s, double xn, double pr, double ompr,
+                   double cum, double ccum) {
+  cumnbn(&s, &xn, &pr, &ompr, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumnor(double arg, double result, double ccum) {
+  cumnor(&arg, &result, &ccum);
+}
+
+// TODO
+void cdflib_cumpoi(double s, double xlam, double cum, double ccum) {
+  cumpoi(&s, &xlam, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumt(double t, double df, double cum, double ccum) {
+  cumt(&t, &df, &cum, &ccum);
+}
+
+// TODO
+void cdflib_cumtnc(double t, double df, double nc, double cum, double ccum) {
+  cumtnc(&t, &df, &nc, &cum, &ccum);
+}
+
+double cdflib_devlpl(double a[], int n, double x) {
+  return devlpl(a, &n, &x);
+}
+
+double cdflib_dinvnr(double p, double q) {
+  return dinvnr(&p, &q);
+}
+
+// TODO
+void cdflib_dinvr(int status, double x, double fx,
+                  unsigned long qleft, unsigned long qhi) {
+  dinvr(&status, &x, &fx, &qleft, &qhi);
+}
+
+// TODO
+void cdflib_dstinv(double zsmall, double zbig, double zabsst,
+                   double zrelst, double zstpmu, double zabsto, double zrelto) {
+  dstinv(&zsmall, &zbig, &zabsst, &zrelst, &zstpmu, &zabsto, &zrelto);
+}
+
+double cdflib_dt1(double p, double df) {
+  double q=1.0-p;
+  return dt1(&p, &q, &df);
+}
+
+// TODO
+void cdflib_dzror(int status, double x, double fx, double xlo,
+           double xhi, unsigned long qleft, unsigned long qhi) {
+  dzror(&status, &x, &fx, &xlo, &xhi, &qleft, &qhi);
+}
+
+// TODO
+void cdflib_dstzr(double zxlo, double zxhi, double zabstl, double zreltl) {
+  dstzr(&zxlo, &zxhi, &zabstl, &zreltl);
+}
+
+double cdflib_erf1(double x) {
+  return erf1(&x);
+}
+
+double cdflib_erfc1(int ind, double x) {
+  return erfc1(&ind, &x);
+}
+
+double cdflib_esum(int mu, double x) {
+  return esum(&mu, &x);
+}
+
+double cdflib_exparg(int l) {
+  return exparg(&l);
+}
+
+double cdflib_fpser(double a, double b, double x, double eps) {
+  return fpser(&a, &b, &x, &eps);
+}
+
+double cdflib_gam1(double a) {
+  return gam1(&a);
+}
+
+// TODO
+void cdflib_gaminv(double a, double x, double x0, double p, double q, int ierr) {
+  gaminv(&a, &x, &x0, &p, &q, &ierr);
+}
+
+double cdflib_gamln(double a) {
+  return gamln(&a);
+}
+
+double cdflib_gamln1(double a) {
+  return gamln1(&a);
+}
+
+double cdflib_Xgamm(double a) {
+  return Xgamm(&a);
+}
+
+// TODO
+void cdflib_gratio(double a, double x, double ans, double qans, int ind) {
+  gratio(&a, &x, &ans, &qans, &ind);
+}
+
+double cdflib_gsumln(double a, double b) {
+  return gsumln(&a, &b);
+}
+
+double cdflib_psi(double xx) {
+  return psi(&xx);
+}
+
+double cdflib_rcomp(double a, double x) {
+  return rcomp(&a, &x);
+}
+
+double cdflib_rexp(double x) {
+  return rexp(&x);
+}
+
+double cdflib_rlog(double x) {
+  return rlog(&x);
+}
+
+double cdflib_rlog1(double x) {
+  return rlog1(&x);
+}
+
+double cdflib_spmpar(int i) {
+  return spmpar(&i);
+}
+
+double cdflib_stvaln(double p) {
+  return stvaln(&p);
+}
+
+/*
+ Rest can be called directly
+ fifdint, fifdmax1, fifdmin1, fifdsign, fifidint, fifmod
+*/

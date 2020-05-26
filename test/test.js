@@ -2,7 +2,7 @@ const CdfLibWrapper = require("../cdflibNode");
 const CdfLibStandaloneWrapper = require("../cdflibStandalone");
 
 expect.extend({
-  toBeAround(actual, expected, precision) {
+  toBeAround(actual, expected, precision = 6) {
     const pass = Math.abs(expected - actual) < Math.pow(10, -precision) / 2;
     if (pass) {
       return {
@@ -135,7 +135,7 @@ describe("cdflib_wasm", () => {
     const p = 0.025;
 
     test("cdfbet_1", () => {
-      expect(cdflib.cdfbet_1(x, a, b)).toBeAround(p, 8);
+      expect(cdflib.cdfbet_1(x, a, b)).toBeAround(p);
     });
 
     test("cdfbet_2", () => {
@@ -143,11 +143,98 @@ describe("cdflib_wasm", () => {
     });
 
     test("cdfbet_3", () => {
-      expect(cdflib.cdfbet_3(p, b, x)).toBeAround(a, 6);
+      expect(cdflib.cdfbet_3(p, b, x)).toBeAround(a);
     });
 
     test("cdfbet_4", () => {
-      expect(cdflib.cdfbet_4(a, p, x)).toBeAround(b, 6);
+      expect(cdflib.cdfbet_4(a, p, x)).toBeAround(b);
+    });
+  });
+
+  describe("cdfbin", () => {
+    const p = 0.025;
+    const s = 300;
+    const xn = 819.7188346644044;
+    const pr = 0.4;
+
+    test("cdfbin_1", () => {
+      expect(cdflib.cdfbin_1(s, xn, pr)).toBeAround(p);
+    });
+
+    test("cdfbin_2", () => {
+      expect(cdflib.cdfbin_2(p, xn, pr)).toBeAround(s);
+    });
+
+    test("cdfbin_3", () => {
+      expect(cdflib.cdfbin_3(p, s, pr)).toBeAround(xn);
+    });
+
+    test("cdfbin_4", () => {
+      expect(cdflib.cdfbin_4(p, s, xn)).toBeAround(pr);
+    });
+  });
+
+  describe("cdfchi", () => {
+    const p = 0.025;
+    const x = 8.230746194746484;
+    const df = 18;
+
+    test("cdfchi_1", () => {
+      expect(cdflib.cdfchi_1(x, df)).toBeAround(p);
+    });
+
+    test("cdfchi_2", () => {
+      expect(cdflib.cdfchi_2(p, df)).toBeAround(x);
+    });
+
+    test("cdfchi_3", () => {
+      expect(cdflib.cdfchi_3(p, x)).toBeAround(df);
+    });
+  });
+
+  describe("cdfchn", () => {
+    const x = 9.716905660200746;
+    const nc = 3.1;
+    const df = 18;
+    const p = 0.025;
+
+    test("cdfchn_1", () => {
+      expect(cdflib.cdfchn_1(x, df, nc)).toBeAround(p);
+    });
+
+    test("cdfchn_2", () => {
+      expect(cdflib.cdfchn_2(p, df, nc)).toBe(x);
+    });
+
+    test("cdfchn_3", () => {
+      expect(cdflib.cdfchn_3(x, p, nc)).toBeAround(df);
+    });
+
+    test("cdfchn_4", () => {
+      expect(cdflib.cdfchn_4(x, df, p)).toBeAround(nc);
+    });
+  });
+
+  describe("cdff", () => {
+    const f = 10;
+    const dfn = 0.023;
+    const dfd = 0.111;
+    const p = 0.8352448773786684;
+
+    test("cdff_1", () => {
+      expect(cdflib.cdff_1(dfn, dfd, f)).toBeAround(p);
+    });
+
+    test("cdff_2", () => {
+      expect(cdflib.cdff_2(dfn, dfd, p)).toBeAround(f);
+    });
+
+    test("cdff_3", () => {
+      expect(cdflib.cdff_3(p, dfd, f)).toBeAround(dfn);
+    });
+
+    test("cdff_4", () => {
+      expect(cdflib.cdff_4(dfn, p, f)).toBeAround(dfd);
     });
   });
 
@@ -157,7 +244,7 @@ describe("cdflib_wasm", () => {
     const p = 0.025;
 
     test("cdft_1", () => {
-      expect(cdflib.cdft_1(df, t)).toBeAround(p, 14);
+      expect(cdflib.cdft_1(df, t)).toBeAround(p);
     });
 
     test("cdft_2", () => {
@@ -165,7 +252,7 @@ describe("cdflib_wasm", () => {
     });
 
     test("cdft_3", () => {
-      expect(cdflib.cdft_3(p, t)).toBeAround(df, 7);
+      expect(cdflib.cdft_3(p, t)).toBeAround(df);
     });
   });
 
@@ -180,25 +267,22 @@ describe("cdflib_wasm", () => {
     });
 
     test("cdftnc_2", () => {
-      expect(cdflib.cdftnc_2(df, nc, p)).toBeAround(t, 12);
+      expect(cdflib.cdftnc_2(df, nc, p)).toBeAround(t);
     });
 
     test("cdftnc_3", () => {
-      expect(cdflib.cdftnc_3(p, nc, t)).toBeAround(df, 8);
+      expect(cdflib.cdftnc_3(p, nc, t)).toBeAround(df);
     });
 
     test("cdftnc_4", () => {
-      expect(cdflib.cdftnc_4(df, p, t)).toBeAround(nc, 13);
+      expect(cdflib.cdftnc_4(df, p, t)).toBeAround(nc);
     });
   });
 
   describe("standalone version", () => {
     test("works", () => {
       const cdflibStandalone = new CdfLibStandaloneWrapper(true);
-      expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(
-        0.025,
-        14
-      );
+      expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(0.025);
     });
   });
 });

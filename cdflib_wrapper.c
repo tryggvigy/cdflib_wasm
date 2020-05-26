@@ -121,7 +121,7 @@ double cdflib_cdfbin_3(double p, double s, double pr) {
 }
 
 double cdflib_cdfbin_4(double p, double s, double xn) {
-  int which=3;
+  int which=4;
   double q=1.0-p, ompr=0, pr=0, bound=0;
   int status=10;
   cdfbin(&which, &p, &q, &s, &xn, &pr, &ompr, &status, &bound);
@@ -193,7 +193,7 @@ double cdflib_cdff_1(double dfn, double dfd, double f) {
 }
 
 double cdflib_cdff_2(double dfn, double dfd, double p) {
-  int which=1;
+  int which=2;
   double q=1.0-p, f=0, bound=0;
   int status=10;
   cdff(&which, &p, &q, &f, &dfn, &dfd, &status, &bound);

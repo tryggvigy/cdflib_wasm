@@ -287,10 +287,14 @@ describe("cdflib_wasm", () => {
     });
   });
 
-  describe("standalone version", () => {
-    test("works", () => {
-      const cdflibStandalone = new CdfLibStandaloneWrapper(true);
-      expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(0.025);
-    });
+  test("standalone version works", () => {
+    const cdflibStandalone = new CdfLibStandaloneWrapper(true);
+    expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(0.025);
+  });
+
+  test("async compilation works", async () => {
+    const cdflibAsync = new CdfLibWrapper();
+    await cdflibAsync.compiled;
+    expect(cdflibAsync.cdft_1(18, -2.10092204024096)).toBeAround(0.025);
   });
 });

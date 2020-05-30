@@ -28,8 +28,7 @@ double cdflib_betaln(double a0, double b0) {
   return betaln(&a0, &b0);
 }
 
-double cdflib_bfrac(double a, double b, double x, double y, double eps) {
-  double lambda = (a+b)*y-b;
+double cdflib_bfrac(double a, double b, double x, double y, double lambda, double eps) {
   return bfrac(&a, &b, &x, &y, &lambda, &eps);
 }
 
@@ -225,7 +224,7 @@ double cdflib_cdffnc_1(double dfn, double dfd, double nc, double f) {
 }
 
 double cdflib_cdffnc_2(double dfn, double dfd, double nc, double p) {
-  int which=1;
+  int which=2;
   double q=1.0-p, f=0, bound=0;
   int status=10;
   cdffnc(&which, &p, &q, &f, &dfn, &dfd, &nc, &status, &bound);
@@ -431,6 +430,8 @@ double cdflib_cdftnc_4(double df, double p, double t) {
   cdftnc(&which, &p, &q, &t, &df, &nc, &status, &bound);
   return nc;
 }
+
+// Internal helpers?
 
 // TODO
 void cdflib_cumbet(double x, double y, double a, double b, double cum, double ccum) {

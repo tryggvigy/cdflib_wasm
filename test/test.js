@@ -65,25 +65,24 @@ describe("cdflib_wasm", () => {
     expect(cdflib.betaln(a, b)).toBe(-22.986827966193474);
   });
 
-  // Runs infintely
-  test.skip("bfrac", () => {
-    const a = 14;
-    const b = 14;
+  test("bfrac", () => {
+    const a = 0.01;
+    const b = 0.02;
     const x = 14;
     const y = 14;
+    const lambda = 1;
     const eps = 1;
-    expect(cdflib.bfrac(a, b, x, y, eps)).toBe(0);
+    expect(cdflib.bfrac(a, b, x, y, lambda, eps)).toBe(0.25767785853193825);
   });
 
-  // returns NaN
-  test.skip("bgrat", () => {
-    const a = 20;
+  test("bgrat", () => {
+    const a = 15;
     const b = 0.2;
-    const x = 14;
-    const y = 11;
+    const x = 0.2;
+    const y = 0.1;
     const w = 14;
-    const eps = 11;
-    expect(cdflib.bgrat(a, b, x, y, eps)).toBe(0);
+    const eps = 3;
+    expect(cdflib.bgrat(a, b, x, y, eps)).toBe(0.023650289659709573);
   });
 
   test("bpser", () => {
@@ -218,8 +217,8 @@ describe("cdflib_wasm", () => {
   describe("cdff", () => {
     const f = 10;
     const dfn = 0.023;
-    const dfd = 0.111;
-    const p = 0.8352448773786684;
+    const dfd = 0.02184053257710943;
+    const p = 0.5;
 
     test("cdff_1", () => {
       expect(cdflib.cdff_1(dfn, dfd, f)).toBeAround(p);
@@ -235,6 +234,121 @@ describe("cdflib_wasm", () => {
 
     test("cdff_4", () => {
       expect(cdflib.cdff_4(dfn, p, f)).toBeAround(dfd);
+    });
+  });
+
+  describe("cdffnc", () => {
+    const f = 10;
+    const dfn = 1;
+    const dfd = 2;
+    const p = 0.8103163170059843;
+    const nc = 1.43;
+
+    test("cdffnc_1", () => {
+      expect(cdflib.cdffnc_1(dfn, dfd, nc, f)).toBeAround(p);
+    });
+
+    test("cdffnc_2", () => {
+      expect(cdflib.cdffnc_2(dfn, dfd, nc, p)).toBeAround(f);
+    });
+
+    test("cdffnc_3", () => {
+      expect(cdflib.cdffnc_3(p, dfd, nc, f)).toBeAround(dfn);
+    });
+
+    test("cdffnc_4", () => {
+      expect(cdflib.cdffnc_4(dfn, p, nc, f)).toBeAround(dfd);
+    });
+
+    test("cdffnc_5", () => {
+      expect(cdflib.cdffnc_5(dfn, dfd, p, f)).toBeAround(nc);
+    });
+  });
+
+  describe("cdfgam", () => {
+    const scale = 10;
+    const shape = 0.4894039080454661;
+    const x = 0.02184053257710943;
+    const p = 0.5;
+
+    test("cdfgam_1", () => {
+      expect(cdflib.cdfgam_1(scale, shape, x)).toBeAround(p);
+    });
+
+    test("cdfgam_2", () => {
+      expect(cdflib.cdfgam_2(scale, shape, p)).toBeAround(x);
+    });
+
+    test("cdfgam_3", () => {
+      expect(cdflib.cdfgam_3(scale, p, x)).toBeAround(shape);
+    });
+
+    test("cdfgam_4", () => {
+      expect(cdflib.cdfgam_4(p, shape, x)).toBeAround(scale);
+    });
+  });
+
+  describe("cdfnbn", () => {
+    const s = 10;
+    const xn = 7;
+    const pr = 0.5;
+    const p = 0.8338470458984374;
+
+    test("cdfnbn_1", () => {
+      expect(cdflib.cdfnbn_1(s, xn, pr)).toBeAround(p);
+    });
+
+    test("cdfnbn_2", () => {
+      expect(cdflib.cdfnbn_2(p, xn, pr)).toBeAround(s);
+    });
+
+    test("cdfnbn_3", () => {
+      expect(cdflib.cdfnbn_3(s, p, pr)).toBeAround(xn);
+    });
+
+    test("cdfnbn_4", () => {
+      expect(cdflib.cdfnbn_4(s, p, xn)).toBeAround(pr);
+    });
+  });
+
+  describe("cdfnor", () => {
+    const mean = 10;
+    const std = 1;
+    const x = 9;
+    const p = 0.15865525393145705;
+
+    test("cdfnor_1", () => {
+      expect(cdflib.cdfnor_1(mean, std, x)).toBe(p);
+    });
+
+    test("cdfnor_2", () => {
+      expect(cdflib.cdfnor_2(mean, p, std)).toBe(x);
+    });
+
+    test("cdfnor_3", () => {
+      expect(cdflib.cdfnor_3(p, std, x)).toBe(mean);
+    });
+
+    test("cdfnor_4", () => {
+      expect(cdflib.cdfnor_4(mean, p, x)).toBe(std);
+    });
+  });
+
+  describe("cdfpoi", () => {
+    const s = 11;
+    const xlam = 10;
+    const p = 0.6967761463031059;
+
+    test("cdfpoi_1", () => {
+      expect(cdflib.cdfpoi_1(s, xlam)).toBeAround(p);
+    });
+
+    test("cdfpoi_2", () => {
+      expect(cdflib.cdfpoi_2(p, xlam)).toBeAround(s);
+    });
+
+    test("cdfpoi_3", () => {
+      expect(cdflib.cdfpoi_3(p, s)).toBeAround(xlam);
     });
   });
 

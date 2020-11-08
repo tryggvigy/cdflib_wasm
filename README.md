@@ -11,9 +11,10 @@ _<sub>Quote from https://people.sc.fsu.edu/~jburkardt/f_src/cdflib/cdflib.html</
 
 ## Table of Content
 
-| Function            | Documentation                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| [`cdfbet`](#cdfbet) | Calculates any one parameter of the beta distribution given values for the others. |
+| Functions           | Documentation                                       |
+| ------------------- | --------------------------------------------------- |
+| [`cdfbet`](#cdfbet) | Calculates parameters of the beta distribution.     |
+| [`cdfbin`](#cdfbin) | Calculates parameters of the binomial distribution. |
 
 ## Documentation
 
@@ -25,33 +26,119 @@ Calculates any one parameter of the beta distribution given values for the other
             distribution.
             Input range: [0, 1].
 
-     Q <--> 1-P.
-            Input range: [0, 1].
-            P + Q = 1.0.
+    Q <--> 1-P.
+        Input range: [0, 1].
+        P + Q = 1.0.
 
-     X <--> Upper limit of integration of beta density.
-            Input range: [0,1].
-            Search range: [0,1]
+    X <--> Upper limit of integration of beta density.
+        Input range: [0,1].
+        Search range: [0,1]
 
-     Y <--> 1-X.
-            Input range: [0,1].
-            Search range: [0,1]
-            X + Y = 1.0.
+    Y <--> 1-X.
+        Input range: [0,1].
+        Search range: [0,1]
+        X + Y = 1.0.
 
-     A <--> The first parameter of the beta density.
-            Input range: (0, +infinity).
-            Search range: [1D-100,1D100]
+    A <--> The first parameter of the beta density.
+        Input range: (0, +infinity).
+        Search range: [1D-100,1D100]
 
-     B <--> The second parameter of the beta density.
-            Input range: (0, +infinity).
-            Search range: [1D-100,1D100]
+    B <--> The second parameter of the beta density.
+        Input range: (0, +infinity).
+        Search range: [1D-100,1D100]
 
 #### cdflib.cdfbet_1(double x, double a, double b): double
 
 `cdfbet_1` Calculates P and Q from X, Y, A and B
 
 ```js
-const ret = cdflib.cdfbet_1(x, a, b);
+const p = cdflib.cdfbet_1(x, a, b);
+```
+
+#### cdflib.cdfbet_2(double p, double a, double b): double
+
+`cdfbet_2` Calculate X and Y from P,Q,A and B
+
+```js
+const x = cdflib.cdfbet_2(p, a, b);
+```
+
+#### cdflib.cdfbet_3(double p, double b, double x): double
+
+`cdfbet_3` Calculate A from P,Q,X,Y and B
+
+```js
+const a = cdflib.cdfbet_3(p, b, x);
+```
+
+#### cdflib.cdfbet_4(double a, double p, double x): double
+
+`cdfbet_4` Calculate B from P,Q,X,Y and A
+
+```js
+const b = cdflib.cdfbet_4(a, p, x);
+```
+
+### cdfbin
+
+Calculates any one parameter of the binomial distribution given values for the others.
+
+    P <--> The cumulation from 0 to S of the binomial distribution.
+        (Probablility of S or fewer successes in XN trials each
+        with probability of success PR.)
+        Input range: [0,1].
+
+    Q <--> 1-P.
+        Input range: [0, 1].
+        P + Q = 1.0.
+
+    S <--> The number of successes observed.
+        Input range: [0, XN]
+        Search range: [0, XN]
+
+    XN  <--> The number of binomial trials.
+            Input range: (0, +infinity).
+            Search range: [1E-100, 1E100]
+
+    PR  <--> The probability of success in each binomial trial.
+            Input range: [0,1].
+            Search range: [0,1]
+
+    OMPR  <--> 1-PR
+            Input range: [0,1].
+            Search range: [0,1]
+            PR + OMPR = 1.0
+
+#### cdflib.cdfbin_1(double s, double xn, double pr): double
+
+`cdfbin_1` Calculate P and Q from S,XN,PR and OMPR
+
+```js
+const p = cdflib.cdfbin_1(s, xn, pr);
+```
+
+#### cdflib.cdfbin_2(double p, double xn, double pr): double
+
+`cdfbin_2` Calculate S from P,Q,XN,PR and OMPR
+
+```js
+const s = cdflib.cdfbin_2(p, xn, pr);
+```
+
+#### cdflib.cdfbin_3(double p, double s, double pr): double
+
+`cdfbin_3` Calculate XN from P,Q,S,PR and OMPR
+
+```js
+const xn = cdflib.cdfbin_3(p, s, pr);
+```
+
+#### cdflib.cdfbin_4(double p, double s, double xn): double
+
+`cdfbin_4` Calculate PR and OMPR from P,Q,S and XN
+
+```js
+const pr = cdflib.cdfbin_4(p, s, xn);
 ```
 
 # Credits

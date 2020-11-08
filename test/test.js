@@ -7,15 +7,15 @@ expect.extend({
     if (pass) {
       return {
         message: () => `expected ${actual} not to be around ${expected}`,
-        pass: true
+        pass: true,
       };
     } else {
       return {
         message: () => `expected ${actual} to be around ${expected}`,
-        pass: false
+        pass: false,
       };
     }
-  }
+  },
 });
 
 describe("cdflib_wasm", () => {
@@ -29,6 +29,16 @@ describe("cdflib_wasm", () => {
 
     test("cdfbet_1", () => {
       expect(cdflib.cdfbet_1(x, a, b)).toBeAround(p);
+      expect(() => cdflib.cdfbet_1(-0.01, a, b)).toThrowError(
+        new RangeError(
+          'cdflib reports "(C Lang) input parameter 4 is out of range" in cdfbet1'
+        )
+      );
+      expect(() => cdflib.cdfbet_1(1.01, a, b)).toThrowError(
+        new RangeError(
+          'cdflib reports "(C Lang) input parameter 4 is out of range" in cdfbet1'
+        )
+      );
     });
 
     test("cdfbet_2", () => {
@@ -144,6 +154,14 @@ describe("cdflib_wasm", () => {
 
     test("cdffnc_2", () => {
       expect(cdflib.cdffnc_2(dfn, dfd, nc, p)).toBeAround(f);
+    });
+
+    test("cdffnc_2 errors", () => {
+      expect(() => cdflib.cdffnc_2(dfn, dfd, nc, 1 - 1e-15)).toThrowError(
+        new RangeError(
+          'cdflib reports "Answer appears to be higher than greatest search (1e+100)" in cdffnc2'
+        )
+      );
     });
 
     test("cdffnc_3", () => {

@@ -36,6 +36,7 @@ cdflib.wasm:
 	-s INVOKE_RUN=0 \
 	-s DISABLE_EXCEPTION_CATCHING=1 \
 	-s ASSERTIONS=0 \
+	--js-library c-defs.js \
 	cdflib.c cdflib_wrapper.c -o cdflib.js
 
 cdflib.wasm.base64.json cdflibStandalone.js:

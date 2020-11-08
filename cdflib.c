@@ -5563,7 +5563,7 @@ void cdftnc(int *which, double *p, double *q, double *t, double *df,
                  Input range: (0 , +infinity).
                  Search range: [1e-100, 1E10]
  
-      PNONC <--> Noncentrality parameter of the noncentral t-distributio
+      PNONC <--> Noncentrality parameter of the noncentral t-distribution.
                  Input range: [-infinity , +infinity).
                  Search range: [-1e4, 1E4]
  

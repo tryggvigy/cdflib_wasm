@@ -11,9 +11,9 @@ _<sub>Quote from https://people.sc.fsu.edu/~jburkardt/f_src/cdflib/cdflib.html</
 
 ## Table of Content
 
-| Function   | Documentation |
-| ---------- | ------------- |
-| `cdfbet_1` | TODO          |
+| Function            | Documentation                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| [`cdfbet`](#cdfbet) | Calculates any one parameter of the beta distribution given values for the others. |
 
 ## Documentation
 

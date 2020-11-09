@@ -21,11 +21,11 @@ static double get_result(char *name, int status, double bound, double result /*,
 
 
 /**
- * **************************************************
- * CDFLIB - Continuous Distribution Functions Library
- * **************************************************
+ * ******
+ * CDFLIB
+ * ******
  */
-
+ 
 double cdflib_cdfbet_1(double x, double a, double b) {
   int which=1;
   double y=1.0-x, q=0, p=0, bound=0;

@@ -143,5 +143,5 @@ const pr = cdflib.cdfbin_4(p, s, xn);
 
 # Credits
 
-- [presto](https://github.com/scottransom/presto) for the cdflib source
+- [presto](https://github.com/scottransom/presto) for the cdflib C source
 - [node-cephes](https://github.com/nearform/node-cephes) which I heavily borrow the wasm packaging from.

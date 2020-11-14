@@ -8,7 +8,6 @@ clean:
 	rm -f test/test.out
 
 build: clean prebuild test.out cdflib.wasm generatejs
-buildci: clean prebuild cdflib.wasm generatejs
 
 test.out:
 	gcc test/test.c cdflib/*.c -o test/test.out -lm

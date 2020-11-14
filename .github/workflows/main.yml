@@ -44,7 +44,7 @@ jobs:
 
       # Run build
       - name: Run build
-        run: make buildci
+        run: make build
 
       # Runs test
       - name: Run tests

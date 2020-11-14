@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --config jest.config.js",
     "build": "make build"
   },
   "repository": {

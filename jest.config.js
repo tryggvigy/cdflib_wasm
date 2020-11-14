@@ -1,3 +1,3 @@
 module.exports = {
-  modulePathIgnorePatterns: ["/node_modules/", "/emsdk_cache/"],
+  modulePathIgnorePatterns: ["/node_modules/", "/emsdk-cache/"],
 };

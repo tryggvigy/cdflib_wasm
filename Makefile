@@ -1,3 +1,5 @@
+.PHONY: prebuild clean build buildci generatejs
+
 prebuild: 
 	mkdir build
 
@@ -5,11 +7,10 @@ clean:
 	rm -rf build
 	rm -f test/test.out
 
-build: clean prebuild test.out cdflib.wasm cdflib.wasm.base64.json
-buildci: clean prebuild cdflib.wasm cdflib.wasm.base64.json
+build: clean prebuild test.out cdflib.wasm generatejs
 
 test.out:
-	clang test/test.c cdflib/*.c -o test/test.out
+	gcc test/test.c cdflib/*.c -o test/test.out -lm
 
 cdflib.wasm:
 	emcc -s "EXPORTED_FUNCTIONS=[ \
@@ -39,6 +40,6 @@ cdflib.wasm:
 	--js-library c-defs.js \
 	cdflib/*.c cdflib_wrapper.c -o build/cdflib.js
 
-cdflib.wasm.base64.json:
+generatejs:
     # generates cdflib.wasm.base64.json, cdflibStandalone.js, cdflibNode.js
 	node generateFiles.js

@@ -52,30 +52,21 @@ Calculates any one parameter of the beta distribution given values for the other
             distribution.
             Input range: [0, 1].
 
-    Q <--> 1-P.
-        Input range: [0, 1].
-        P + Q = 1.0.
-
     X <--> Upper limit of integration of beta density.
-        Input range: [0,1].
-        Search range: [0,1]
-
-    Y <--> 1-X.
-        Input range: [0,1].
-        Search range: [0,1]
-        X + Y = 1.0.
+        Input range: [0, 1].
+        Search range: [0, 1]
 
     A <--> The first parameter of the beta density.
         Input range: (0, +infinity).
-        Search range: [1D-100,1D100]
+        Search range: [1D-100, 1D100]
 
     B <--> The second parameter of the beta density.
         Input range: (0, +infinity).
-        Search range: [1D-100,1D100]
+        Search range: [1D-100, 1D100]
 
 #### cdfbet_1(double x, double a, double b): double
 
-`cdfbet_1` Calculates P and Q from X, Y, A and B
+`cdfbet_1` Calculates P from X, A and B
 
 ```js
 const p = cdflib.cdfbet_1(x, a, b);
@@ -83,7 +74,7 @@ const p = cdflib.cdfbet_1(x, a, b);
 
 #### cdfbet_2(double p, double a, double b): double
 
-`cdfbet_2` Calculate X and Y from P, Q, A and B
+`cdfbet_2` Calculate X from P, A and B
 
 ```js
 const x = cdflib.cdfbet_2(p, a, b);
@@ -91,7 +82,7 @@ const x = cdflib.cdfbet_2(p, a, b);
 
 #### cdfbet_3(double p, double b, double x): double
 
-`cdfbet_3` Calculate A from P, Q, X, Y and B
+`cdfbet_3` Calculate A from P, X and B
 
 ```js
 const a = cdflib.cdfbet_3(p, b, x);
@@ -99,7 +90,7 @@ const a = cdflib.cdfbet_3(p, b, x);
 
 #### cdfbet_4(double a, double p, double x): double
 
-`cdfbet_4` Calculate B from P, Q, X, Y and A
+`cdfbet_4` Calculate B from P, X and A
 
 ```js
 const b = cdflib.cdfbet_4(a, p, x);
@@ -112,11 +103,7 @@ Calculates any one parameter of the binomial distribution given values for the o
     P <--> The cumulation from 0 to S of the binomial distribution.
         (Probablility of S or fewer successes in XN trials each
         with probability of success PR.)
-        Input range: [0,1].
-
-    Q <--> 1-P.
         Input range: [0, 1].
-        P + Q = 1.0.
 
     S <--> The number of successes observed.
         Input range: [0, XN]
@@ -127,17 +114,12 @@ Calculates any one parameter of the binomial distribution given values for the o
             Search range: [1E-100, 1E100]
 
     PR  <--> The probability of success in each binomial trial.
-            Input range: [0,1].
-            Search range: [0,1]
-
-    OMPR  <--> 1-PR
-            Input range: [0,1].
-            Search range: [0,1]
-            PR + OMPR = 1.0
+            Input range: [0, 1].
+            Search range: [0, 1]
 
 #### cdfbin_1(double s, double xn, double pr): double
 
-`cdfbin_1` Calculate P and Q from S,XN,PR and OMPR
+`cdfbin_1` Calculate P from S, XN, PR
 
 ```js
 const p = cdflib.cdfbin_1(s, xn, pr);
@@ -145,7 +127,7 @@ const p = cdflib.cdfbin_1(s, xn, pr);
 
 #### cdfbin_2(double p, double xn, double pr): double
 
-`cdfbin_2` Calculate S from P,Q,XN,PR and OMPR
+`cdfbin_2` Calculate S from P, XN, PR
 
 ```js
 const s = cdflib.cdfbin_2(p, xn, pr);
@@ -153,7 +135,7 @@ const s = cdflib.cdfbin_2(p, xn, pr);
 
 #### cdfbin_3(double p, double s, double pr): double
 
-`cdfbin_3` Calculate XN from P,Q,S,PR and OMPR
+`cdfbin_3` Calculate XN from P, S, PR
 
 ```js
 const xn = cdflib.cdfbin_3(p, s, pr);
@@ -161,7 +143,7 @@ const xn = cdflib.cdfbin_3(p, s, pr);
 
 #### cdfbin_4(double p, double s, double xn): double
 
-`cdfbin_4` Calculate PR and OMPR from P,Q,S and XN
+`cdfbin_4` Calculate PR from P, S and XN
 
 ```js
 const pr = cdflib.cdfbin_4(p, s, xn);
@@ -175,14 +157,10 @@ Calculates any one parameter of the chi-squared distribution given values for th
         distribution.
         Input range: [0, 1].
 
-    Q <--> 1-P.
-        Input range: (0, 1].
-        P + Q = 1.0.
-
     X <--> Upper limit of integration of the non-central
         chi-square distribution.
         Input range: [0, +infinity).
-        Search range: [0,1E100]
+        Search range: [0, 1E100]
 
     DF <--> Degrees of freedom of the
             chi-square distribution.
@@ -191,7 +169,7 @@ Calculates any one parameter of the chi-squared distribution given values for th
 
 #### cdfchi_1(double x, double df): double
 
-`cdfchi_1` Calculate P and Q from X and DF
+`cdfchi_1` Calculate P from X and DF
 
 ```js
 const p = cdflib.cdfchi_1(x, df);
@@ -199,7 +177,7 @@ const p = cdflib.cdfchi_1(x, df);
 
 #### cdfchi_2(double p, double df): double
 
-`cdfchi_2` Calculate X from P,Q and DF
+`cdfchi_2` Calculate X from P and DF
 
 ```js
 const x = cdflib.cdfchi_2(p, df);
@@ -207,7 +185,7 @@ const x = cdflib.cdfchi_2(p, df);
 
 #### cdfchi_3(double p, double x): double
 
-`cdfchi_3` Calculate DF from P,Q and X
+`cdfchi_3` Calculate DF from P and X
 
 ```js
 const df = cdflib.cdfchi_3(p, x);
@@ -221,14 +199,10 @@ Calculates any one parameter of the non-central chi-squared distribution given v
         distribution.
         Input range: [0, 1-1E-16).
 
-    Q <--> 1-P.
-        Q is not used by this subroutine and is only included
-        for similarity with other cdf* routines.
-
     X <--> Upper limit of integration of the non-central
         chi-square distribution.
         Input range: [0, +infinity).
-        Search range: [0,1E100]
+        Search range: [0, 1E100]
 
     DF <--> Degrees of freedom of the non-central
             chi-square distribution.
@@ -238,11 +212,14 @@ Calculates any one parameter of the non-central chi-squared distribution given v
     NC <--> Non-centrality parameter of the non-central
             chi-square distribution.
             Input range: [0, +infinity).
-            Search range: [0,1E4]
+            Search range: [0, 1E4]
+
+**Warning**
+The computation time required for this routine is proportional to the noncentrality parameter (NC). Very large values of this parameter can consume immense computer resources. This is why the search range is bounded by 10,000.
 
 #### cdfchn_1(double x, double df, double nc): double
 
-`cdfchn_1` Calculate P and Q from X and DF
+`cdfchn_1` Calculate P from X and DF
 
 ```js
 const p = cdflib.cdfchn_1(x, df, nc);
@@ -250,7 +227,7 @@ const p = cdflib.cdfchn_1(x, df, nc);
 
 #### cdfchn_2(double p, double df, double nc): double
 
-`cdfchn_2` Calculate X from P,DF and NC
+`cdfchn_2` Calculate X from P, DF and NC
 
 ```js
 const x = cdflib.cdfchn_2(p, df, nc);
@@ -258,7 +235,7 @@ const x = cdflib.cdfchn_2(p, df, nc);
 
 #### cdfchn_3(double x, double p, double nc): double
 
-`cdfchn_3` Calculate DF from P,X and NC
+`cdfchn_3` Calculate DF from P, X and NC
 
 ```js
 const df = cdflib.cdfchn_3(x, p, nc);
@@ -266,7 +243,7 @@ const df = cdflib.cdfchn_3(x, p, nc);
 
 #### cdfchn_4(double x, double df, double p): double
 
-`cdfchn_4` Calculate NC from P,X and DF
+`cdfchn_4` Calculate NC from P, X and DF
 
 ```js
 const pnonc = cdflib.cdfchn_4(x, df, p);
@@ -277,15 +254,11 @@ const pnonc = cdflib.cdfchn_4(x, df, p);
 Calculates any one parameter of the F distribution given values for the others.
 
     P <--> The integral from 0 to F of the f-density.
-            Input range: [0,1].
-
-    Q <--> 1-P.
-            Input range: (0, 1].
-            P + Q = 1.0.
+            Input range: [0, 1].
 
     F <--> Upper limit of integration of the f-density.
             Input range: [0, +infinity).
-            Search range: [0,1E100]
+            Search range: [0, 1E100]
 
     DFN < --> Degrees of freedom of the numerator sum of squares.
             Input range: (0, +infinity).
@@ -295,9 +268,15 @@ Calculates any one parameter of the F distribution given values for the others.
             Input range: (0, +infinity).
             Search range: [ 1E-100, 1E100]
 
+**Warning**
+The value of the cumulative F distribution is not necessarily
+monotone in either degrees of freedom. There thus may be two
+values that provide a given CDF value. This routine assumes
+monotonicity and will find an arbitrary one of the two values.
+
 #### cdff_1(double dfn, double dfd, double f): double
 
-`cdff_1` Calculate P and Q from F, DFN and DFD
+`cdff_1` Calculate P from F, DFN and DFD
 
 ```js
 const p = cdflib.cdff_1(dfc, dfd, f);
@@ -305,7 +284,7 @@ const p = cdflib.cdff_1(dfc, dfd, f);
 
 #### cdff_2(double dfn, double dfd, double p): double
 
-`cdff_2` Calculate F from P, Q, DFN and DFD
+`cdff_2` Calculate F from P, DFN and DFD
 
 ```js
 const f = cdflib.cdff_2(dfn, dfd, p);
@@ -313,7 +292,7 @@ const f = cdflib.cdff_2(dfn, dfd, p);
 
 #### cdff_3(double p, double dfd, double f): double
 
-`cdff_3` Calculate DFN from P, Q, F and DFD
+`cdff_3` Calculate DFN from P, F and DFD
 
 ```js
 const dfn = cdflib.cdff_3(p, dfd, f);
@@ -321,7 +300,7 @@ const dfn = cdflib.cdff_3(p, dfd, f);
 
 #### cdff_4(double dfn, double p, double f): double
 
-`cdff_4` Calculate DFD from P, Q, F and DFN
+`cdff_4` Calculate DFD from P, F and DFN
 
 ```js
 const dfd = cdflib.cdff_4(dfn, p, f);
@@ -332,15 +311,11 @@ const dfd = cdflib.cdff_4(dfn, p, f);
 Calculates any one parameter of the Non-central F distribution given values for the others.
 
     P <--> The integral from 0 to F of the non-central f-density.
-            Input range: [0,1-1E-16).
-
-    Q <--> 1-P.
-            Q is not used by this subroutine and is only included
-            for similarity with other cdf* routines.
+            Input range: [0, 1-1E-16).
 
     F <--> Upper limit of integration of the non-central f-density.
             Input range: [0, +infinity).
-            Search range: [0,1E100]
+            Search range: [0, 1E100]
 
     DFN < --> Degrees of freedom of the numerator sum of squares.
             Input range: (0, +infinity).
@@ -352,12 +327,27 @@ Calculates any one parameter of the Non-central F distribution given values for 
             Search range: [ 1E-100, 1E100]
 
     NC <-> The non-centrality parameter
-            Input range: [0,infinity)
-            Search range: [0,1E4]
+            Input range: [0, infinity)
+            Search range: [0, 1E4]
+
+**Warning**
+
+The computation time required for this routine is proportional
+to the noncentrality parameter (PNONC). Very large values of
+this parameter can consume immense computer resources. This is
+why the search range is bounded by 10,000.
+
+**Warning**
+
+The value of the cumulative noncentral F distribution is not
+necessarily monotone in either degrees of freedom. There thus
+may be two values that provide a given CDF value. This routine
+assumes monotonicity and will find an arbitrary one of the two
+values.
 
 #### cdffnc_1(double dfn, double dfd, double nc, double f): double
 
-`cdffnc_1` Calculate P and Q from F,DFN,DFD and NC
+`cdffnc_1` Calculate P from F, DFN, DFD and NC
 
 ```js
 const p = cdflib.cdffnc_1(dfc, dfd, nc, f);
@@ -365,7 +355,7 @@ const p = cdflib.cdffnc_1(dfc, dfd, nc, f);
 
 #### cdffnc_2(double dfn, double dfd, double nc, double p): double
 
-`cdffnc_2` Calculate F from P,Q,DFN,DFD and NC
+`cdffnc_2` Calculate F from P, DFN, DFD and NC
 
 ```js
 const f = cdflib.cdffnc_2(dfn, dfd, nc, p);
@@ -373,7 +363,7 @@ const f = cdflib.cdffnc_2(dfn, dfd, nc, p);
 
 #### cdffnc_3(double p, double dfd, double nc, double f): double
 
-`cdffnc_3` Calculate DFN from P,Q,F,DFD and NC
+`cdffnc_3` Calculate DFN from P, F, DFD and NC
 
 ```js
 const dfn = cdflib.cdffnc_3(p, dfd, nc, f);
@@ -381,7 +371,7 @@ const dfn = cdflib.cdffnc_3(p, dfd, nc, f);
 
 #### cdffnc_4(double dfn, double p, double nc, double f): double
 
-`cdffnc_4` Calculate DFD from P,Q,F,DFN and NC
+`cdffnc_4` Calculate DFD from P, F, DFN and NC
 
 ```js
 const dfd = cdflib.cdffnc_4(dfn, p, nc, f);
@@ -389,7 +379,7 @@ const dfd = cdflib.cdffnc_4(dfn, p, nc, f);
 
 #### cdffnc_5(double dfn, double dfd, double p, double f): double
 
-`cdffnc_5` Calculate NC from P,Q,F,DFN and DFD
+`cdffnc_5` Calculate NC from P, F, DFN and DFD
 
 ```js
 const pnonc = cdflib.cdffnc_5(dfn, dfd, p, f);
@@ -401,27 +391,23 @@ Calculates any one parameter of the gamma
 distribution given values for the others.
 
     P <--> The integral from 0 to X of the gamma density.
-        Input range: [0,1].
-
-    Q <--> 1-P.
-        Input range: (0, 1].
-        P + Q = 1.0.
+        Input range: [0, 1].
 
     X <--> The upper limit of integration of the gamma density.
         Input range: [0, +infinity).
-        Search range: [0,1E100]
+        Search range: [0, 1E100]
 
     SHAPE <--> The shape parameter of the gamma density.
             Input range: (0, +infinity).
-            Search range: [1E-100,1E100]
+            Search range: [1E-100, 1E100]
 
     SCALE <--> The scale parameter of the gamma density.
             Input range: (0, +infinity).
-            Search range: (1E-100,1E100]
+            Search range: (1E-100, 1E100]
 
 #### cdfgam_1(double scale, double shape, double x): double
 
-`cdfgam_1` Calculate P and Q from X,SHAPE and SCALE
+`cdfgam_1` Calculate P from X, SHAPE and SCALE
 
 ```js
 const p = cdflib.cdfgam_1(scale, shape, x);
@@ -429,7 +415,7 @@ const p = cdflib.cdfgam_1(scale, shape, x);
 
 #### cdfgam_2(double scale, double shape, double p): double
 
-`cdfgam_2` Calculate X from P,Q,SHAPE and SCALE
+`cdfgam_2` Calculate X from P, SHAPE and SCALE
 
 ```js
 const x = cdflib.cdfgam_2(scale, shape, p);
@@ -437,7 +423,7 @@ const x = cdflib.cdfgam_2(scale, shape, p);
 
 #### cdfgam_3(double scale, double p, double x): double
 
-`cdfgam_3` Calculate SHAPE from P,Q,X and SCALE
+`cdfgam_3` Calculate SHAPE from P, X and SCALE
 
 ```js
 const shape = cdflib.cdfgam_3(scale, p, x);
@@ -445,7 +431,7 @@ const shape = cdflib.cdfgam_3(scale, p, x);
 
 #### cdfgam_4(double p, double shape, double x): double
 
-`cdfgam_4` Calculate SCALE from P,Q,X and SHAPE
+`cdfgam_4` Calculate SCALE from P, X and SHAPE
 
 ```js
 const scale = cdflib.cdfgam_4(p, shape, x);
@@ -456,13 +442,18 @@ const scale = cdflib.cdfgam_4(p, shape, x);
 Calculates any one parameter of the negative binomial
 distribution given values for the others.
 
+The cumulative negative binomial distribution returns the
+probability that there will be F or fewer failures before the
+XNth success in binomial trials each of which has probability of
+success PR.
+
+The individual term of the negative binomial is the probability of
+S failures before XN successes and is
+`Choose(S, XN+S-1) * PR^(XN) * (1-PR)^S`
+
     P <--> The cumulation from 0 to S of the  negative
         binomial distribution.
-        Input range: [0,1].
-
-    Q <--> 1-P.
-        Input range: (0, 1].
-        P + Q = 1.0.
+        Input range: [0, 1].
 
     S <--> The upper limit of cumulation of the binomial distribution.
         There are F or fewer failures before the XNth success.
@@ -474,17 +465,12 @@ distribution given values for the others.
             Search range: [0, 1E100]
 
     PR  <--> The probability of success in each binomial trial.
-            Input range: [0,1].
-            Search range: [0,1].
-
-    OMPR  <--> 1-PR
-            Input range: [0,1].
-            Search range: [0,1]
-            PR + OMPR = 1.0
+            Input range: [0, 1].
+            Search range: [0, 1].
 
 #### cdfnbn_1(double s, double xn, double pr): double
 
-`cdfnbn_1` Calculate P and Q from S,XN,PR and OMPR
+`cdfnbn_1` Calculate P from S, XN, PR
 
 ```js
 const p = cdflib.cdfnbn_1(s, xn, pr);
@@ -492,7 +478,7 @@ const p = cdflib.cdfnbn_1(s, xn, pr);
 
 #### cdfnbn_2(double p, double xn, double pr): double
 
-`cdfnbn_2` Calculate S from P,Q,XN,PR and OMPR
+`cdfnbn_2` Calculate S from P, XN, PR
 
 ```js
 const s = cdflib.cdfnbn_2(p, xn, pr);
@@ -500,7 +486,7 @@ const s = cdflib.cdfnbn_2(p, xn, pr);
 
 #### cdfnbn_3(double s, double p, double pr): double
 
-`cdfnbn_3` Calculate XN from P,Q,S,PR and OMPR
+`cdfnbn_3` Calculate XN from P, S, PR
 
 ```js
 const xn = cdflib.cdfnbn_3(s, p, pr);
@@ -508,7 +494,7 @@ const xn = cdflib.cdfnbn_3(s, p, pr);
 
 #### cdfnbn_4(double s, double p, double xn): double
 
-`cdfnbn_4` Calculate PR and OMPR from P,Q,S and XN
+`cdfnbn_4` Calculate PR from P, S and XN
 
 ```js
 const pr = cdflib.cdfnbn_4(s, p, xn);
@@ -519,11 +505,7 @@ const pr = cdflib.cdfnbn_4(s, p, xn);
 Calculates any one parameter of the normal distribution given values for the others.
 
     P <--> The integral from -infinity to X of the normal density.
-        Input range: (0,1].
-
-    Q <--> 1-P.
         Input range: (0, 1].
-        P + Q = 1.0.
 
     X < --> Upper limit of integration of the normal-density.
             Input range: ( -infinity, +infinity)
@@ -531,12 +513,16 @@ Calculates any one parameter of the normal distribution given values for the oth
     MEAN <--> The mean of the normal density.
             Input range: (-infinity, +infinity)
 
-    SD <--> Standard Deviation of the normal density.
+    STD <--> Standard Deviation of the normal density.
             Input range: (0, +infinity).
+
+**Note**
+The normal density is proportional to
+`exp( - 0.5 * (( X - MEAN)/STD)**2)`
 
 #### cdfnor_1(double mean, double std, double x): double
 
-`cdfnor_1` Calculate P and Q from X,MEAN and SD
+`cdfnor_1` Calculate P from X, MEAN and STD
 
 ```js
 const p = cdflib.cdfnor_1(mean, std, x);
@@ -544,7 +530,7 @@ const p = cdflib.cdfnor_1(mean, std, x);
 
 #### cdfnor_2(double mean, double p, double std): double
 
-`cdfnor_2` Calculate X from P,Q,MEAN and SD
+`cdfnor_2` Calculate X from P, MEAN and STD
 
 ```js
 const x = cdflib.cdfnor_2(mean, p, std);
@@ -552,7 +538,7 @@ const x = cdflib.cdfnor_2(mean, p, std);
 
 #### cdfnor_3(double p, double std, double x): double
 
-`cdfnor_3` Calculate MEAN from P,Q,X and SD
+`cdfnor_3` Calculate MEAN from P, X and STD
 
 ```js
 const mean = cdflib.cdfnor_3(p, std, x);
@@ -560,7 +546,7 @@ const mean = cdflib.cdfnor_3(p, std, x);
 
 #### cdfnor_4(double mean, double p, double x): double
 
-`cdfnor_4` Calculate SD from P,Q,X and MEAN
+`cdfnor_4` Calculate STD from P, X and MEAN
 
 ```js
 const sd = cdflib.cdfnor_4(mean, p, x);
@@ -571,23 +557,19 @@ const sd = cdflib.cdfnor_4(mean, p, x);
 Calculates any one parameter of the Poisson distribution given values for the others.
 
     P <--> The cumulation from 0 to S of the poisson density.
-            Input range: [0,1].
-
-    Q <--> 1-P.
-            Input range: (0, 1].
-            P + Q = 1.0.
+            Input range: [0, 1].
 
     S <--> Upper limit of cumulation of the Poisson.
             Input range: [0, +infinity).
-            Search range: [0,1E100]
+            Search range: [0, 1E100]
 
     XLAM <--> Mean of the Poisson distribution.
             Input range: [0, +infinity).
-            Search range: [0,1E100]
+            Search range: [0, 1E100]
 
 #### cdfpoi_1(double s, double xlam): double
 
-`cdfpoi_1` Calculate P and Q from S and XLAM
+`cdfpoi_1` Calculate P from S and XLAM
 
 ```js
 const p = cdflib.cdfpoi_1(s, xlam);
@@ -595,7 +577,7 @@ const p = cdflib.cdfpoi_1(s, xlam);
 
 #### cdfpoi_2(double p, double xlam): double
 
-`cdfpoi_2` Calculate A from P,Q and XLAM
+`cdfpoi_2` Calculate A from P and XLAM
 
 ```js
 const a = cdflib.cdfpoi_2(p, xlam);
@@ -603,7 +585,7 @@ const a = cdflib.cdfpoi_2(p, xlam);
 
 #### cdfpoi_3(double p, double s): double
 
-`cdfpoi_3` Calculate XLAM from P,Q and S
+`cdfpoi_3` Calculate XLAM from P and S
 
 ```js
 const xlam = cdflib.cdfpoi_3(p, s);
@@ -614,11 +596,7 @@ const xlam = cdflib.cdfpoi_3(p, s);
 Calculates any one parameter of the student's t distribution given values for the others.
 
     P <--> The integral from -infinity to t of the t-density.
-            Input range: (0,1].
-
-    Q <--> 1-P.
             Input range: (0, 1].
-            P + Q = 1.0.
 
     T <--> Upper limit of integration of the t-density.
             Input range: ( -infinity, +infinity).
@@ -630,7 +608,7 @@ Calculates any one parameter of the student's t distribution given values for th
 
 #### cdft_1(double df, double t): double
 
-`cdft_1` Calculate P and Q from T and DF
+`cdft_1` Calculate P from T and DF
 
 ```js
 const p = cdflib.cdft_1(df, t);
@@ -638,7 +616,7 @@ const p = cdflib.cdft_1(df, t);
 
 #### cdft_2(double df, double p): double
 
-`cdft_2` Calculate T from P,Q and DF
+`cdft_2` Calculate T from P and DF
 
 ```js
 const t = cdflib.cdft_2(p, df);
@@ -646,7 +624,7 @@ const t = cdflib.cdft_2(p, df);
 
 #### cdft_3(double p, double t): double
 
-`cdft_3` Calculate DF from P,Q and T
+`cdft_3` Calculate DF from P and T
 
 ```js
 const df = cdflib.cdft_3(p, t);
@@ -657,11 +635,7 @@ const df = cdflib.cdft_3(p, t);
 Calculates any one parameter of the non-central student's t distribution given values for the others.
 
     P <--> The integral from -infinity to t of the noncentral t-den
-        Input range: (0,1].
-
-    Q <--> 1-P.
         Input range: (0, 1].
-        P + Q = 1.0.
 
     T <--> Upper limit of integration of the noncentral t-density.
         Input range: ( -infinity, +infinity).
@@ -677,7 +651,7 @@ Calculates any one parameter of the non-central student's t distribution given v
 
 #### cdftnc_1(double df, double nc, double t): double
 
-`cdftnc_1` Calculate P and Q from T,DF,NC
+`cdftnc_1` Calculate P from T, DF, NC
 
 ```js
 const p = cdflib.cdftnc_1(df, nc, t);
@@ -685,7 +659,7 @@ const p = cdflib.cdftnc_1(df, nc, t);
 
 #### cdftnc_2(double df, double nc, double p): double
 
-`cdftnc_2` Calculate T from P,Q,DF,NC
+`cdftnc_2` Calculate T from P, DF, NC
 
 ```js
 const t = cdflib.cdftnc_2(df, nc, p);
@@ -693,7 +667,7 @@ const t = cdflib.cdftnc_2(df, nc, p);
 
 #### cdftnc_3(double p, double nc, double t): double
 
-`cdftnc_3` Calculate DF from P,Q,T
+`cdftnc_3` Calculate DF from P, NC, T
 
 ```js
 const df = cdflib.cdftnc_3(df, nc, t);
@@ -701,7 +675,7 @@ const df = cdflib.cdftnc_3(df, nc, t);
 
 #### cdftnc_4(double df, double p, double t): double
 
-`cdftnc_4` Calculate NC from P,Q,DF,T
+`cdftnc_4` Calculate NC from P, DF, T
 
 ```js
 const pnonc = cdflib.cdftnc_4(df, p, t);

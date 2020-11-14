@@ -28,10 +28,15 @@ jobs:
       - name: Npm install
         run: npm install
 
+      - name: Setup Emscripten toolchain
+        uses: mymindstorm/setup-emsdk@v7
+
       - name: Debug
         run: |
           make --version
           gcc --version
+          emcc --version
+          make cdflib.wasm
 
       # Run build
       - name: Run build

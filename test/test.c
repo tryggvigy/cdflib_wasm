@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../cdflib.h"
+#include "../cdflib/cdflib.h"
 
 void algdiv_test() {
   double a=1,b=2;

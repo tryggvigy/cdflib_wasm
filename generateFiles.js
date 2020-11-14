@@ -1,12 +1,12 @@
 const fs = require("fs");
 
-const wasmAsBase64 = fs.readFileSync("./cdflib.wasm", "base64");
+const wasmAsBase64 = fs.readFileSync("./out/cdflib.wasm", "base64");
 const template = fs.readFileSync("./cdflibTemplate.js", "utf8");
 
-fs.writeFileSync("./cdflib.wasm.base64.json", JSON.stringify(wasmAsBase64));
+fs.writeFileSync("./out/cdflib.wasm.base64.json", JSON.stringify(wasmAsBase64));
 
 fs.writeFileSync(
-  "./cdflibStandalone.js",
+  "./out/cdflibStandalone.js",
   "// == AUTO-GENERATED FILE ==\n\n" +
     template.replace(
       '"{{WASM_CODE}}"',
@@ -15,7 +15,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-  "./cdflibNode.js",
+  "./out/cdflibNode.js",
   "// == AUTO-GENERATED FILE ==\n\n" +
     template.replace(
       '"{{WASM_CODE}}"',

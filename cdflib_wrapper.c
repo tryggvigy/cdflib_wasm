@@ -1,4 +1,4 @@
-#include "cdflib.h"
+#include "cdflib/cdflib.h"
 #include <stdio.h>
 
 /* Used for removing _malloc and _free in the exports.

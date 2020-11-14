@@ -1,15 +1,14 @@
+prebuild: 
+	mkdir build
+
 build: test.out cdflib.wasm cdflib.wasm.base64.json cdflibStandalone.js
 
 clean:
-	rm -f cdflib.out
-	rm -f cdflib.js
-	rm -f cdflib.wasm
-	rm -f cdflib.wasm.base64.json
+	rm -rf build
 	rm -f test/test.out
-	rm -f cdflibStandalone.js
 
 test.out:
-	clang test/test.c cdflib.c -o test/test.out
+	clang test/test.c cdflib/*.c -o test/test.out
 
 cdflib.wasm:
 	emcc -s "EXPORTED_FUNCTIONS=[ \
@@ -37,7 +36,7 @@ cdflib.wasm:
 	-s DISABLE_EXCEPTION_CATCHING=1 \
 	-s ASSERTIONS=0 \
 	--js-library c-defs.js \
-	cdflib.c cdflib_wrapper.c -o cdflib.js
+	cdflib/*.c cdflib_wrapper.c -o build/cdflib.js
 
 cdflib.wasm.base64.json cdflibStandalone.js:
 	node generateFiles.js

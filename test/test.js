@@ -1,5 +1,5 @@
-const CdfLibWrapper = require("../cdflibNode");
-const CdfLibStandaloneWrapper = require("../cdflibStandalone");
+const CdfLibWrapper = require("../out/cdflibNode");
+const CdfLibStandaloneWrapper = require("../out/cdflibStandalone");
 
 expect.extend({
   toBeAround(actual, expected, precision = 6) {

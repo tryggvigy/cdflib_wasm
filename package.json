@@ -1,14 +1,14 @@
 {
   "name": "cdflib_wasm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Wasm wrapper for cdflib. Compute cumulative distribution functions, inverses, and parameters of statistical distributions",
   "main": "apps-script.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest",
-    "build": "make clean build && node generateFiles.js"
+    "build": "make clean prebuild build && node generateFiles.js"
   },
   "repository": {
     "type": "git",

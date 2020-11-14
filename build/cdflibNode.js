@@ -19,7 +19,7 @@ function _base64ToArrayBuffer(base64) {
 }
 
 class CdfLibWrapper {
-  constructor(sync) {
+  constructor({ compileSync = false } = {}) {
     // Initialize the runtime's memory
     this._wasmMemory = new WebAssembly.Memory({
       initial: TOTAL_MEMORY / WASM_PAGE_SIZE,
@@ -33,7 +33,7 @@ class CdfLibWrapper {
     this._HEAPF64 = new Float64Array(this._wasmMemory.buffer);
 
     // Compile and export program
-    if (sync) {
+    if (compileSync) {
       // compile synchronously
       const program = this._compileSync();
       this._exportProgram(program);
@@ -175,7 +175,6 @@ class CdfLibWrapper {
       default:
         throw new Error("invalid type for getValue: " + type);
     }
-    return null;
   }
 
   writeArrayToMemory(array, buffer) {

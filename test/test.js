@@ -19,7 +19,7 @@ expect.extend({
 });
 
 describe("cdflib_wasm", () => {
-  const cdflib = new CdfLibWrapper(true);
+  const cdflib = new CdfLibWrapper({ compileSync: true });
 
   describe("cdfbet", () => {
     const x = 0.5998027288886079;
@@ -306,7 +306,7 @@ describe("cdflib_wasm", () => {
   });
 
   test("standalone version works", () => {
-    const cdflibStandalone = new CdfLibStandaloneWrapper(true);
+    const cdflibStandalone = new CdfLibStandaloneWrapper({ compileSync: true });
     expect(cdflibStandalone.cdft_1(18, -2.10092204024096)).toBeAround(0.025);
   });
 

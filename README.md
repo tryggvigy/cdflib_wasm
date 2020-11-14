@@ -25,6 +25,30 @@ as it appears in the [presto](https://github.com/scottransom/presto/blob/master/
 
 _<sub>http://www.netlib.org/random/ dcdflib.c README file</sub>_
 
+## Install
+
+```bash
+npm install cdflib_wasm
+```
+
+## Usage
+
+For good practice, cdflib compiles asyncronously by default.
+You must therefore wait for the `.compiled` promise to be resolved.
+
+```js
+const CdfLibWrapper = require("cdflib_wasm");
+const cdflib = new CdfLibWrapper();
+await cdflib.compiled;
+```
+
+It is possible to syncronously compile cdflib.
+
+```js
+const cdflib = new CdfLibWrapper({ compileSync: true });
+await cdflib.compiled;
+```
+
 ## Table of Content
 
 | Functions           | Documentation                                                      |

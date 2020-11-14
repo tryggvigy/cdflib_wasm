@@ -1,11 +1,12 @@
 prebuild: 
 	mkdir build
 
-build: test.out cdflib.wasm cdflib.wasm.base64.json cdflibStandalone.js
-
 clean:
 	rm -rf build
 	rm -f test/test.out
+
+build: clean prebuild test.out cdflib.wasm cdflib.wasm.base64.json
+buildci: clean prebuild cdflib.wasm cdflib.wasm.base64.json
 
 test.out:
 	clang test/test.c cdflib/*.c -o test/test.out
@@ -38,5 +39,6 @@ cdflib.wasm:
 	--js-library c-defs.js \
 	cdflib/*.c cdflib_wrapper.c -o build/cdflib.js
 
-cdflib.wasm.base64.json cdflibStandalone.js:
+cdflib.wasm.base64.json:
+    # generates cdflib.wasm.base64.json, cdflibStandalone.js, cdflibNode.js
 	node generateFiles.js

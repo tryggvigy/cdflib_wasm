@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "make clean prebuild build && node generateFiles.js"
+    "build": "make build"
   },
   "repository": {
     "type": "git",

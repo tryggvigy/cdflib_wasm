@@ -36,11 +36,10 @@ jobs:
           make --version
           gcc --version
           emcc --version
-          make cdflib.wasm
 
       # Run build
       - name: Run build
-        run: npm run build
+        run: make build
 
       # Runs test
       - name: Run tests

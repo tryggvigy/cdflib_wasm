@@ -173,7 +173,6 @@ class CdfLibWrapper {
       default:
         throw new Error("invalid type for getValue: " + type);
     }
-    return null;
   }
 
   writeArrayToMemory(array, buffer) {

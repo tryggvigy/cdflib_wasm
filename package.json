@@ -2,25 +2,16 @@
   "name": "cdflib_wasm",
   "version": "1.0.0",
   "description": "Wasm wrapper for cdflib. Compute cumulative distribution functions, inverses, and parameters of statistical distributions",
-  "main": "apps-script.js",
-  "directories": {
-    "test": "test"
-  },
+  "repository": "tryggvigy/cdflib_wasm",
+  "main": "build/cdflibNode.js",
+  "browser": "build/cdflibStandalone.js",
   "scripts": {
     "test": "jest --config jest.config.js",
     "build": "make build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tryggvigy/cdflib_wasm.git"
-  },
-  "author": "",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/tryggvigy/cdflib_wasm/issues"
-  },
-  "homepage": "https://github.com/tryggvigy/cdflib_wasm#readme",
+  "dependencies": {},
   "devDependencies": {
     "jest": "^26.0.1"
-  }
+  },
+  "license": "BSD-2-Clause"
 }

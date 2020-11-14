@@ -28,6 +28,13 @@ jobs:
 
       - name: Setup Emscripten toolchain
         uses: mymindstorm/setup-emsdk@v7
+        with:
+          # Make sure to set a version number!
+          version: 2.0.8
+          # This is the name of the cache folder.
+          # The cache folder will be placed in the build directory,
+          #  so make sure it doesn't conflict with anything!
+          actions-cache-folder: "emsdk-cache"
 
       - name: Debug
         run: |

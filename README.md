@@ -670,7 +670,7 @@ const t = cdflib.cdftnc_2(df, nc, p);
 `cdftnc_3` Calculate DF from P, NC, T
 
 ```js
-const df = cdflib.cdftnc_3(df, nc, t);
+const df = cdflib.cdftnc_3(p, nc, t);
 ```
 
 #### cdftnc_4(double df, double p, double t): double

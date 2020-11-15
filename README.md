@@ -40,13 +40,14 @@ You must therefore wait for the `.compiled` promise to be resolved.
 const CdfLibWrapper = require("cdflib_wasm");
 const cdflib = new CdfLibWrapper();
 await cdflib.compiled;
+cdflib.cdft_1(18, -2.10092204024096);
 ```
 
 It is possible to syncronously compile cdflib.
 
 ```js
 const cdflib = new CdfLibWrapper({ compileSync: true });
-await cdflib.compiled;
+cdflib.cdft_1(18, -2.10092204024096);
 ```
 
 ## Table of Content
